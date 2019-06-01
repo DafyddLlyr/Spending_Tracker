@@ -25,9 +25,10 @@ CREATE TABLE transactions (
   id SERIAL8 PRIMARY KEY,
   transaction_date DATE NOT NULL,
   pounds INT4 DEFAULT 0,
+  -- how do I limit pence?
   pence INT2 DEFAULT 0,
-  user_id INT8 REFERENCES users(id),
-  merchant_id INT8 REFERENCES merchants(id),
-  category_id INT8 REFERENCES categories(id),
+  user_id INT8 REFERENCES users(id) ON DELETE CASCADE,
+  merchant_id INT8 REFERENCES merchants(id) ON DELETE CASCADE,
+  category_id INT8 REFERENCES categories(id) ON DELETE CASCADE,
   description TEXT
 );

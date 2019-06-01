@@ -1,8 +1,9 @@
 require_relative("../db/sql_runner")
 
-class Category
+class Merchant
 
-  attr_reader :id, :name
+  attr_reader :id
+  attr_accessor :name
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -10,21 +11,22 @@ class Category
   end
 
   def save()
-    sql = "INSERT INTO categories (name) VALUES ($1) RETURNING id"
+    sql = "INSERT INTO merchants(name) VALUES ($1) RETURNING id"
     values = [@name]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
 
-  def delete()
-    sql = "DELETE FROM categories WHERE id = $1"
-    values = [@id]
+  def update()
+    # This needs () for multiple values
+    sql = "UPDATE merchants SET name = $1 WHERE id = $2"
+    values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 
   def user_transactions(user)
     sql = "SELECT * FROM transactions
-    WHERE category_id = $1
+    WHERE merchant_id = $1
     AND user_id = $2"
     values = [@id, user.id]
     results = SqlRunner.run(sql, values)
@@ -32,21 +34,22 @@ class Category
   end
 
   def self.all()
-    sql = "SELECT * FROM categories"
+    sql = "SELECT * FROM merchants"
     results = SqlRunner.run(sql)
-    return results.map { |category| Category.new(category) }
+    return results.map { |merchant| Merchant.new(merchant) }
   end
 
   def self.find(id)
-    sql = "SELECT * FROM categories WHERE id = $1"
+    sql = "SELECT * FROM merchants WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
-    return Category.new(result[0])
+    return Merchant.new(result[0])
   end
 
   def self.delete_all()
-    sql = "DELETE FROM categories"
+    sql = "DELETE FROM merchants"
     SqlRunner.run(sql)
   end
+
 
 end
