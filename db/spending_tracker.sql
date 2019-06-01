@@ -26,6 +26,7 @@ CREATE TABLE transactions (
   transaction_date DATE NOT NULL,
   pounds INT4 DEFAULT 0,
   pence INT2 DEFAULT 0,
+  user_id INT8 REFERENCES users(id),
   merchant_id INT8 REFERENCES merchants(id),
   category_id INT8 REFERENCES categories(id),
   description TEXT
