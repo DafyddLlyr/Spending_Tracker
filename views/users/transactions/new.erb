@@ -1,0 +1,41 @@
+<h1>New Transaction</h1>
+
+<form action="/users/<%= @user.id %>/transactions" method="post">
+
+  <label for="transaction-date">Date: </label>
+  <input type="date" name="transaction_date" required>
+
+  <br>
+
+  <label for="price">Amount: </label>
+  <input type="number" name="pounds" min="0" required>
+  <input type="number" name="pence" min="0" max= "99" required>
+
+  <br>
+
+  <label for="merchant-select">Merchant: </label>
+  <select name="merchant_id" required>
+    <% for merchant in @merchants %>
+    <option value="<%= merchant.id %>"><%= merchant.name %></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <label for="category-select">Merchant: </label>
+  <select name="category_id" required>
+    <% for category in @categories %>
+    <option value="<%= category.id %>"><%= category.name.capitalize %></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <label for="description">Description: </label>
+  <textarea name="description" rows="4" cols="50"></textarea>
+
+  <br>
+
+  <input type="submit" value="Add Transaction">
+
+</form>

@@ -24,7 +24,7 @@ class Merchant
     SqlRunner.run(sql, values)
   end
 
-  def user_transactions(user)
+  def self.user_transactions(user)
     sql = "SELECT * FROM transactions
     WHERE merchant_id = $1
     AND user_id = $2"

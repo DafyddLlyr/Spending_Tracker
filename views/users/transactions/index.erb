@@ -1,0 +1,33 @@
+<h1>All transactions</h1>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Date</th>
+    <th>Merchant</th>
+    <th>Category</th>
+    <th>Amount</th>
+  </tr>
+  <% for transaction in @transactions %>
+  <tr>
+    <td><a href="./<%= transaction.id %>"><%= transaction.id %></a></td>
+    <td><%= transaction.transaction_date %></td>
+    <td><%= transaction.merchant.name %></td>
+    <td><%= transaction.category.name.capitalize %></td>
+    <td><%= transaction.pretty_value %></td>
+  </tr>
+  <% end %>
+  <tfoot>
+    <td colspan="4"></td>
+    <td>
+      <% pounds = 0 %>
+      <% pence = 0 %>
+      <% @transactions.each do |transaction| %>
+        <% pounds += transaction.pounds %>
+        <% pence += transaction.pence %>
+      <% end %>
+      <% pounds += pence / 100 %>
+      <% pence %= 100 %>
+      <%= "£#{pounds}.#{pence}" %>
+    </td>
+  </tfoot>
+</table>

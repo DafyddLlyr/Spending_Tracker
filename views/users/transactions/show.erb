@@ -1,0 +1,8 @@
+<h1>testing....</h1>
+
+<%= @transaction.pretty_value %>
+
+<form action="/users/<%= @transaction.user_id %>/
+transactions/<%= @transaction.id %>/delete" method="post">
+  <input type="submit" value="Delete transaction">
+</form>
