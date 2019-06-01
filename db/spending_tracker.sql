@@ -13,12 +13,12 @@ CREATE TABLE users (
 
 CREATE TABLE merchants (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255) UNIQUE
 );
 
 CREATE TABLE categories (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255) UNIQUE
 );
 
 CREATE TABLE transactions (
