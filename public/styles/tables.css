@@ -1,0 +1,33 @@
+.table-container {
+  width: 100%;
+  justify-content: center;
+}
+
+table {
+  width: 70vw;
+  background-color: aliceblue;
+  border-collapse: collapse;
+  margin: 1vh;
+}
+
+th {
+  background-color: white;
+}
+
+th, td {
+  padding: 1vw;
+}
+
+.empty {
+  background-color: lightgrey;
+}
+
+.sum {
+  font-weight: bold;
+  background-color: grey;
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}

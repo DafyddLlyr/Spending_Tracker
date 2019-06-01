@@ -1,4 +1,7 @@
-<h1>All transactions</h1>
+<header>
+  <h1>All transactions</h1>
+</header>
+<div class="table-container flex">
 <table>
   <tr>
     <th>id</th>
@@ -17,8 +20,8 @@
   </tr>
   <% end %>
   <tfoot>
-    <td colspan="4"></td>
-    <td>
+    <td colspan="4" class="empty"></td>
+    <td class="sum">
       <% pounds = 0 %>
       <% pence = 0 %>
       <% @transactions.each do |transaction| %>
@@ -31,3 +34,4 @@
     </td>
   </tfoot>
 </table>
+</div>

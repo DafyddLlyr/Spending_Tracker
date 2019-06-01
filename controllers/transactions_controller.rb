@@ -6,7 +6,7 @@ require_relative("../models/merchant")
 require_relative("../models/category")
 also_reload('../models/*')
 
-get "/users/:user_id/transactions/" do
+get "/users/:user_id/transactions" do
   @user = User.find(params["user_id"])
   @transactions = @user.transactions()
   erb(:"users/transactions/index")

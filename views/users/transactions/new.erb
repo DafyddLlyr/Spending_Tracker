@@ -1,4 +1,6 @@
-<h1>New Transaction</h1>
+<header>
+  <h1>New Transaction</h1>
+</header>
 
 <form action="/users/<%= @user.id %>/transactions" method="post">
 
@@ -19,6 +21,7 @@
     <option value="<%= merchant.id %>"><%= merchant.name %></option>
     <% end %>
   </select>
+
 
   <br>
 

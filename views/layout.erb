@@ -11,6 +11,22 @@
   <title>Spending Tracker</title>
 </head>
 <body>
-  <%= yield %>
+  <nav class="flex-column">
+    <h1><a href="/">LOGO</a></h1>
+    <ul class="flex-column">
+      <li><a href="/users/25">Profile</a></li>
+      <li><a href="/users/25/transactions/new">New Transaction</a></li>
+      <li><a href="/users/25/transactions">All Transactions</a></li>
+      <br>
+      <li><a href="#">New Category</a></li>
+      <li><a href="#">View Categories</a></li>
+      <br>
+      <li><a href="#">New Merchant</a></li>
+      <li><a href="#">View Merchants</a></li>
+    </ul>
+  </nav>
+  <section id="main-page">
+    <%= yield %>
+  </section>
 </body>
 </html>

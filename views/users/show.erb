@@ -1,4 +1,9 @@
-<h1>Hello <%= @user.first_name %>!</h1>
+<header>
+  <h1>Hello <%= @user.first_name %>!</h1>
+</header>
+<div class="main-container" class="flex">
+  <div class="card flex">
+    <a href="./<%=@user.id%>/transactions/new">New transaction</a>
 
-<a href="./<%=@user.id%>/transactions/">My transactions</a>
-<a href="./<%=@user.id%>/transactions/new">New transaction</a>
+  </div>
+</div>
