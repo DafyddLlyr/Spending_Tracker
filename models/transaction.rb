@@ -56,7 +56,7 @@ class Transaction
   end
 
   def pretty_value()
-    return "£#{@pounds}.#{@pence}"
+   @pence < 10 ? "£#{@pounds}.0#{@pence}" : "£#{@pounds}.#{@pence}"
   end
 
   def merchant()

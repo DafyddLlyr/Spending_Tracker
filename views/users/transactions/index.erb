@@ -12,7 +12,7 @@
   </tr>
   <% for transaction in @transactions %>
   <tr>
-    <td><a href="./<%= transaction.id %>"><%= transaction.id %></a></td>
+    <td><a href="transactions/<%= transaction.id %>"><%= transaction.id %></a></td>
     <td><%= transaction.transaction_date %></td>
     <td><%= transaction.merchant.name %></td>
     <td><%= transaction.category.name.capitalize %></td>
@@ -30,7 +30,7 @@
       <% end %>
       <% pounds += pence / 100 %>
       <% pence %= 100 %>
-      <%= "£#{pounds}.#{pence}" %>
+      <%= pence < 10 ? "£#{pounds}.0#{pence}" : "£#{pounds}.#{pence}" %>
     </td>
   </tfoot>
 </table>

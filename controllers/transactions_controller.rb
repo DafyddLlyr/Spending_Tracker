@@ -45,7 +45,7 @@ get "/users/:user_id/transactions/:id/edit" do
 end
 
 post "/users/:user_id/transactions/:id" do
-  @transaction = Transaction.find(params["id"])
+  @transaction = Transaction.new(params)
   @transaction.update()
   erb(:"users/transactions/updated")
 end

@@ -1,0 +1,11 @@
+<header>
+  <h1>All categories</h1>
+</header>
+
+<div class="flex-container">
+  <% for category in @categories.uniq { |category| category.name } %>
+    <a href="/users/<%= @user.id %>/categories/<%= Category.find_name(category.name).id%>">
+    <div class="category-box"><%= category.name %></div>
+    </a>
+  <% end %>
+</div>

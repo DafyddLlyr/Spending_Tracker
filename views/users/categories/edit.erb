@@ -1,0 +1,12 @@
+<header>
+  <h1>Edit Category</h1>
+</header>
+
+<form action="/users/<%= @user.id %>/categories/<%= @category.id %>" method="post">
+
+  <label for="category-name">Category Name: </label>
+  <input type="text" name="name" value="<%= @category.name %>" required>
+
+  <input type="submit" value="Edit Category">
+
+</form>

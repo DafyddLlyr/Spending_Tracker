@@ -1,0 +1,12 @@
+<header>
+  <h1>New Category</h1>
+</header>
+
+<form action="/users/<%= @user.id %>/categories" method="post">
+
+  <label for="category-name">Category Name: </label>
+  <input type="text" name="name" required>
+
+  <input type="submit" value="Add Category">
+
+</form>

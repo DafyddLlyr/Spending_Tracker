@@ -3,6 +3,11 @@
 <%= @transaction.pretty_value %>
 
 <form action="/users/<%= @transaction.user_id %>/
+transactions/<%= @transaction.id %>/edit" method="get">
+  <input type="submit" value="Edit transaction">
+</form>
+
+<form action="/users/<%= @transaction.user_id %>/
 transactions/<%= @transaction.id %>/delete" method="post">
   <input type="submit" value="Delete transaction">
 </form>
