@@ -2,7 +2,7 @@
   <h1>Edit Transaction</h1>
 </header>
 
-<form class="transaction-form" action="/users/<%= @user.id %>/transactions/<%= @transaction.id %>" method="post">
+<form class="transaction-form shadow" action="/users/<%= @user.id %>/transactions/<%= @transaction.id %>" method="post">
 
   <label for="transaction-date">Date: </label>
   <input type="date" name="transaction_date" value="<%= @transaction.transaction_date %>" required>

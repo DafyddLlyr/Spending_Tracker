@@ -1,13 +1,37 @@
-<h1>testing....</h1>
+<header>
+  <h1>Transaction Details</h1>
+</header>
 
-<%= @transaction.pretty_value %>
+<div class="transaction-card shadow">
+  <div class="transaction-details">
+    <h2>Amount: </h2>
+    <p><%= @transaction.pretty_value %></p>
 
-<form action="/users/<%= @transaction.user_id %>/
-transactions/<%= @transaction.id %>/edit" method="get">
-  <input type="submit" value="Edit transaction">
-</form>
+    <h2>Date: </h2>
+    <p><%= @transaction.transaction_date %></p>
 
-<form action="/users/<%= @transaction.user_id %>/
-transactions/<%= @transaction.id %>/delete" method="post">
-  <input type="submit" value="Delete transaction">
-</form>
+    <h2>Description: </h2>
+    <p><%= @transaction.description == "" ? "N/A" : @transaction.description %></p>
+
+    <div class="transaction-show-buttons flex">
+
+      <form action="/users/<%= @transaction.user_id %>/transactions/<%= @transaction.id %>/edit" method="get">
+        <input type="submit" value="Edit" class="transaction-button edit">
+      </form>
+
+      <form action="/users/<%= @transaction.user_id %>/transactions/<%= @transaction.id %>/delete" method="post">
+        <input type="submit" value="Delete" class="transaction-button delete">
+      </form>
+    </div>
+  </div>
+
+  <div class="transaction-header">
+
+    <div class="logo-placeholder"></div>
+
+    <a href="/users/<%= @transaction.user_id %>/categories/<%= @transaction.category.id %>">
+      <div class="transaction-button category"><%= @transaction.category.name.capitalize %></div>
+    </a>
+
+  </div>
+</div>

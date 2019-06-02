@@ -2,7 +2,7 @@
   <h1>New Transaction</h1>
 </header>
 
-<form class="transaction-form" action="/users/<%= @user.id %>/transactions" method="post">
+<form class="transaction-form shadow" action="/users/<%= @user.id %>/transactions" method="post">
 
   <label for="transaction-date">Date: </label>
   <input type="date" name="transaction_date" value="<%= Date.today %>" required>
@@ -20,7 +20,7 @@
     <% end %>
   </select>
 
-  <label for="category-select">Category: </label>
+  <label for="category-select shadow">Category: </label>
   <select name="category_id" required>
     <% for category in @categories %>
     <option value="<%= category.id %>"><%= category.name.capitalize %></option>

@@ -66,3 +66,45 @@ option {
   font-size: 1rem;
   cursor: pointer;
 }
+
+.new-card {
+  background: white;
+  margin: 1vw;
+  padding: 5vw;
+}
+
+.new-form {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-template-rows: 4vh 8vh 8vh;
+  grid-column-gap: 1vw;
+  padding: 2vw 6vw;
+  grid-template-areas:
+    "merchant merchant"
+    ". ."
+    "buttons buttons"
+}
+
+.new-form label {
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+.new-form input[type="text"] {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.new-cat-merc {
+  grid-area: buttons;
+}
+
+.new-cat-merc-submit {
+  background-color: #06BA63;
+  padding: 2vw 5vw;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 20vw;
+}

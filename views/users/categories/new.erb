@@ -1,12 +1,14 @@
 <header>
   <h1>New Category</h1>
 </header>
-
-<form action="/users/<%= @user.id %>/categories" method="post">
-
-  <label for="category-name">Category Name: </label>
-  <input type="text" name="name" required>
-
-  <input type="submit" value="Add Category">
-
-</form>
+<div class="new-card shadow">
+  <form action="/users/<%= @user.id %>/categories" method="post">
+    <div class="new-form">
+      <label for="category-name">Category Name: </label>
+      <input type="text" name="name" required>
+      <div class="new-cat-merc flex-center-center">
+        <input type="submit" value="Add Category" class="new-cat-merc-submit">
+      </div>
+    </div>
+  </form>
+</div>

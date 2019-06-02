@@ -1,12 +1,14 @@
 <header>
   <h1>New Merchant</h1>
 </header>
-
-<form action="/users/<%= @user.id %>/merchants" method="post">
-
-  <label for="merchant-name">Merchant Name: </label>
-  <input type="text" name="name" required>
-
-  <input type="submit" value="Add Merchant">
-
-</form>
+<div class="new-card shadow">
+  <form action="/users/<%= @user.id %>/merchants" method="post">
+    <div class="new-form">
+      <label for="merchant-name">Merchant Name: </label>
+      <input type="text" name="name" required>
+      <div class="new-cat-merc flex-center-center">
+        <input type="submit" value="Add Merchant" class="new-cat-merc-submit">
+      </div>
+    </div>
+  </form>
+</div>

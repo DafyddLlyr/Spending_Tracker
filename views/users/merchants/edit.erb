@@ -1,12 +1,14 @@
 <header>
   <h1>Edit Merchant</h1>
 </header>
-
-<form action="/users/<%= @user.id %>/merchants/<%= @merchant.id %>" method="post">
-
-  <label for="merchant-name">Merchant Name: </label>
-  <input type="text" name="name" value="<%= @merchant.name %>" required>
-
-  <input type="submit" value="Edit Merchant">
-
-</form>
+<div class="new-card shadow">
+  <form action="/users/<%= @user.id %>/merchants/<%= @merchant.id %>" method="post">
+    <div class="new-form">
+      <label for="merchant-name">Merchant Name: </label>
+      <input type="text" name="name" value="<%= @merchant.name %>" required>
+      <div class="new-cat-merc flex-center-center">
+        <input type="submit" value="Edit Merchant" class="new-cat-merc-submit">
+      </div>
+    </div>
+  </form>
+</div>

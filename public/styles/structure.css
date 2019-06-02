@@ -1,11 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 body {
   display: grid;
   grid-template-columns: 20vw auto;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav {
@@ -27,6 +29,8 @@ nav {
 nav h1 {
   padding: 3vw;
   font-size: 3rem;
+  font-family: 'Lobster', cursive;
+  text-align: center;
 }
 
 nav ul {
@@ -74,10 +78,11 @@ header {
 
 .index-box {
   background-color: white;
-  width: 20vw;
+  min-width: 20vw;
   height: 10vw;
   margin: 2vw;
   font-size: 2rem;
+  padding: 1vw;
   text-align: center;
 }
 
@@ -101,7 +106,8 @@ header {
   padding-left: 0;
   margin-bottom: 5vh;
   text-shadow: 4px 4px 4px black;
-  color: white
+  color: white;
+  font-family: 'Lobster', cursive;
 }
 
 .confirmation-card {
@@ -127,4 +133,63 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.transaction-card {
+  background-color: white;
+  margin: 1vw;
+  display: grid;
+  grid-template-columns: 50% auto;
+  grid-column-gap: 1vw;
+}
+
+.transaction-header {
+  flex-direction: column;
+  display: flex;
+  margin: 1vw;
+}
+
+/* .transaction-header h1 {
+  text-align: left;
+  width: 100%;
+} */
+
+.transaction-details {
+  margin: 1vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: auto repeat(4, 8vh);
+  grid-template-areas:
+    "amount amount"
+    "date date"
+    "description description"
+    "buttons buttons";
+  grid-column-gap: 1vw;
+}
+
+.transaction-details h2 {
+  text-align: right;
+}
+
+.transaction-details h2,
+.transaction-details p {
+  font-size: 1.5rem;
+}
+
+.logo-placeholder {
+  width: 20vw;
+  height: 10vw;
+  background-color: darkgrey;
+  align-self: center;
+  margin-bottom: 1vw;
+}
+
+.transaction-show-buttons {
+  grid-area: buttons;
+  justify-content: center;
+  align-items: center;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }

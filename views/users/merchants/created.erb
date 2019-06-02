@@ -1,7 +1,8 @@
 <header>
   <h1>Success!</h1>
 </header>
-
-<p>New merchant of <%= @merchant.name.capitalize %> has been created.</p>
-
+<div class="confirmation-card flex-center-center flex-column shadow">
+<p>New merchant <%= @merchant.name.capitalize %> has been created.</p>
+<br>
 <a href="/users/<%= @user.id %>">Back to profile</a>
+</div>

@@ -5,7 +5,7 @@
 <div class="flex-container">
   <% for category in @categories.uniq { |category| category.name } %>
     <a href="/users/<%= @user.id %>/categories/<%= Category.find_name(category.name).id%>">
-    <div class="index-box flex-center-center"><%= category.name.capitalize %></div>
+    <div class="index-box flex-center-center shadow"><%= category.name.capitalize %></div>
     </a>
   <% end %>
 </div>

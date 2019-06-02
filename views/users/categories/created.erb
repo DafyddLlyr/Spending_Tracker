@@ -1,7 +1,8 @@
 <header>
   <h1>Success!</h1>
 </header>
-
-<p>New category of <%= @category.name.capitalize %> to has been created.</p>
-
+<div class="confirmation-card flex-center-center flex-column shadow">
+<p>New category of <%= @category.name.capitalize %> has been created.</p>
+<br>
 <a href="/users/<%= @user.id %>">Back to profile</a>
+</div>

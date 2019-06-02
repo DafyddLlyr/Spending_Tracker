@@ -1,7 +1,8 @@
 <header>
   <h1>Success!</h1>
 </header>
-
+<div class="confirmation-card flex-center-center flex-column shadow">
 <p>Transaction of <%= @transaction.pretty_value %> to <%= @transaction.merchant.name %> had been deleted.</p>
-
+<br>
 <a href="/users/<%= @transaction.user_id %>">Return to profile</a>
+</div>
