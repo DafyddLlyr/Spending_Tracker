@@ -59,6 +59,10 @@ class Transaction
    @pence < 10 ? "£#{@pounds}.0#{@pence}" : "£#{@pounds}.#{@pence}"
   end
 
+  def pretty_description()
+    @description.length > 30 ? @description[0..30].concat("...") : @description
+  end
+
   def merchant()
     sql = "SELECT * FROM merchants WHERE id = $1"
     values = [@merchant_id]

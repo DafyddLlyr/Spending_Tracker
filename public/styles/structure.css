@@ -17,7 +17,7 @@ nav {
 .flex-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:   center;
 }
 
 .flex {
@@ -45,10 +45,11 @@ nav a {
 }
 
 header {
-  background-color: grey;
+  padding-left: 2vw;
   display: flex;
   align-items: center;
   height: 10vh;
+  font-size: 1.5rem;
 }
 
 .main-container {
@@ -68,7 +69,8 @@ header {
 }
 
 .landing {
-  background-color: white;
+  background-image: url("/images/landing_hero.jpg");
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -78,8 +80,15 @@ header {
 }
 
 .landing-header {
-  background-color: white;
   font-size: 3rem;
   padding-left: 0;
   margin-bottom: 5vh;
+  text-shadow: 4px 4px 4px black;
+  color: white
+}
+
+.confirmation-card {
+  background: white;
+  margin: 1vw;
+  padding: 5vw;  
 }

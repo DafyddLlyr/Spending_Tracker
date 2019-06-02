@@ -2,18 +2,18 @@
   <h1>Edit Transaction</h1>
 </header>
 
-<form action="/users/<%= @user.id %>/transactions/<%= @transaction.id %>" method="post">
+<form class="transaction-form" action="/users/<%= @user.id %>/transactions/<%= @transaction.id %>" method="post">
 
   <label for="transaction-date">Date: </label>
   <input type="date" name="transaction_date" value="<%= @transaction.transaction_date %>" required>
 
-  <br>
 
   <label for="price">Amount: </label>
-  <input type="number" name="pounds" min="0" value="<%= @transaction.pounds %>" required>
-  <input type="number" name="pence" min="0" max= "99" value="<%= @transaction.pence %>" required>
+  <div class="price">
+  <input type="number" name="pounds" min="0" value="<%= @transaction.pounds %>" class="pounds" required>
+  <input type="number" name="pence" min="0" max= "99" value="<%= @transaction.pence %>" class="pence" required>
+</div>
 
-  <br>
 
   <label for="merchant-select">Merchant: </label>
   <select name="merchant_id" required>
@@ -22,22 +22,18 @@
     <% end %>
   </select>
 
-  <br>
-
-  <label for="category-select">Merchant: </label>
+  <label for="category-select">Category: </label>
   <select name="category_id" required>
     <% for category in @categories %>
     <option value="<%= category.id %>"><%= category.name.capitalize %></option>
     <% end %>
   </select>
 
-  <br>
 
   <label for="description">Description: </label>
   <textarea name="description" rows="4" cols="50" value="<%= @transaction.description %>"></textarea>
 
-  <br>
-
-  <input type="submit" value="Edit Transaction">
-
+<div class="transaction-submit flex-center-center">
+  <input type="submit" class="transaction-from-submit"value="Edit Transaction">
+</div>
 </form>

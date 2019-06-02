@@ -1,15 +1,68 @@
-.login-button {
-  margin: 2vw;
-  width: 20vw;
-  padding: 2vw;
-  font-size: 2rem;
-  background-color: green;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
+.transaction-form {
+  background-color: white;
+  margin: 1vw;
+  display: grid;
+  grid-template-columns: 20% auto;
+  grid-template-rows: repeat(4, 4vh) 8vh 15vh;
+  grid-row-gap: 1vw;
+  grid-column-gap: 2vw;
+  padding: 2vw 6vw;
+  grid-template-areas:
+    "date date"
+    "amount amount"
+    "merchant merchant"
+    "category category"
+    "description description"
+    "buttons buttons"
 }
 
-.login-button a {
+.transaction-form label {
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+.transaction-form>* {
+  font-size: 1rem;
+}
+
+.transaction-form input[type="date"] {
+  width: 50%;
+}
+
+.transaction-form input[type="number"] {
+  font-size: 1rem;
+}
+
+.price {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.price .pounds {
+  width: 70%;
+  text-align: right;
+}
+
+.price .pence {
+  width: 20%;
+}
+
+option {
+  font-size: 1rem;
+}
+
+.transaction-submit {
+  grid-area: buttons;
+}
+
+.transaction-from-submit {
+  background-color: #06BA63;
+  padding: 2vw 5vw;
   color: white;
-  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
 }
