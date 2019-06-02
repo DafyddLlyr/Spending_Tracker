@@ -1,0 +1,57 @@
+#profile {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 0vw 2vw 0vw 1vw;
+  grid-column-gap: 1vw;
+}
+
+#profile-header {
+  font-size: 3rem;
+}
+
+.right {
+  height: 100vh;
+}
+
+.left>*, .right>* {
+  width: 100%;
+  margin-top: 1vw;
+}
+
+.profile-transaction {
+  background-color: white;
+  height: 5vh;
+}
+
+#budget-overview {
+  background-color: white;
+  height: 10vh;
+  font-size: 2rem;
+}
+
+#profile-add-transaction {
+  font-size: 1.5rem;
+  background-color: white;
+  height: 10vh;
+}
+
+#profile-add-transaction i {
+  color: #06BA63;
+}
+
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  flex-grow: 1;
+  /* height: 20vh; */
+}
+
+.savings {
+  margin-bottom: 1vw;
+  flex-grow: 2;
+}

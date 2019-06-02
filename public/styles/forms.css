@@ -1,0 +1,15 @@
+.login-button {
+  margin: 2vw;
+  width: 20vw;
+  padding: 2vw;
+  font-size: 2rem;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.login-button a {
+  color: white;
+  text-decoration: none;
+}

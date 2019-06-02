@@ -1,9 +1,45 @@
-<header>
-  <h1>Hello <%= @user.first_name %>!</h1>
-</header>
-<div class="main-container" class="flex">
-  <div class="card flex">
-    <a href="./<%=@user.id%>/transactions/new">New transaction</a>
+<section id="profile">
+
+  <div class="left flex-column">
+    <div id="profile-header">
+      <h1>Hello <%= @user.first_name %>!</h1>
+    </div>
+
+    <div id="budget-overview" class="flex-center-center">
+      <p>Budget bar here</p>
+    </div>
+
+    <div id="profile-add-transaction" class="flex-center-center">
+      <i class="fas fa-plus-circle"></i>
+      &nbsp;
+      <a href="./<%=@user.id%>/transactions/new">New transaction</a>
+    </div>
+
+    <h2>Recent Transaction</h2>
+    <% for transaction in @user.transactions.first(5) %>
+    <div class="profile-transaction flex-center-center">
+      <p><%= transaction.pretty_value %> at <%= transaction.merchant.name %></p>
+    </div>
+    <% end %>
+  </div>
+
+
+  <div class="right flex-column">
+
+    <div class="card flex-center-center goal">
+      <h2>Goal</h2>
+    </div>
+
+    <div class="card flex-center-center advice">
+      <h2>Advice</h2>
+    </div>
+
+    <div class="card flex-center-center savings">
+      <h2>Savings</h2>
+    </div>
 
   </div>
-</div>
+
+
+
+</section>

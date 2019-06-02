@@ -9,8 +9,9 @@ body {
 }
 
 nav {
-  background-color: aliceblue;
-  height: 100vh;
+  background-color: #06BA63;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .flex-column {
@@ -33,22 +34,20 @@ nav ul {
   list-style: none;
 }
 
-#main-page {
-  background-color: lightgrey;
+nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.card {
-  background-color: white;
-  width: 40%;
-  height: 20vw;
-  margin: 2vw;
+#main-page {
+  background-color: lightgrey;
 }
 
 header {
   background-color: grey;
   display: flex;
   align-items: center;
-  padding-left: 2vw;
   height: 10vh;
 }
 
@@ -76,4 +75,11 @@ header {
   left: 0;
   top: 0;
   justify-content: center;
+}
+
+.landing-header {
+  background-color: white;
+  font-size: 3rem;
+  padding-left: 0;
+  margin-bottom: 5vh;
 }

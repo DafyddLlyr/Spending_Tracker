@@ -34,7 +34,9 @@ class User
   end
 
   def transactions()
-    sql = "SELECT * FROM transactions WHERE user_id = $1"
+    sql = "SELECT * FROM transactions
+    WHERE user_id = $1
+    ORDER BY transaction_date DESC"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |transaction| Transaction.new(transaction) }
