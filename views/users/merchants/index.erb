@@ -1,11 +1,11 @@
 <header>
-  <h1>All merchants</h1>
+  <h1>Your Merchants</h1>
 </header>
 
 <div class="flex-container">
   <% for merchant in @merchants.uniq { |merchant| merchant.name } %>
     <a href="/users/<%= @user.id %>/merchants/<%= Merchant.find_name(merchant.name).id%>">
-    <div class="category-box"><%= merchant.name %></div>
+    <div class="index-box flex-center-center"><%= merchant.name %></div>
     </a>
   <% end %>
 </div>

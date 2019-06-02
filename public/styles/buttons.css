@@ -8,10 +8,22 @@
   font-weight: bold;
   border-radius: 10px;
   display: block;
-  text-align: center; 
+  text-align: center;
 }
 
 .login-button a {
   color: white;
   text-decoration: none;
+}
+
+.small-edit-button {
+  background-color: #06BA63;
+  color: white;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin: 0.3vw;
+  padding: 0.3vw 0;
+  border-radius: 5px;
+  width: 7vw;
 }

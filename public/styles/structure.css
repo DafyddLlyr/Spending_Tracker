@@ -59,13 +59,30 @@ header {
 .flex-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.category-box {
-  background-color: lightblue;
+.flex-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.flex-container a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.index-box {
+  background-color: white;
   width: 20vw;
   height: 10vw;
-  margin: 3vw;
+  margin: 2vw;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.index-box:hover {
+  background-color: #06BA63;
 }
 
 .landing {
@@ -90,5 +107,24 @@ header {
 .confirmation-card {
   background: white;
   margin: 1vw;
-  padding: 5vw;  
+  padding: 5vw;
+}
+
+.show-card {
+  background-color: white;
+  margin: 1vw;
+  display: grid;
+  grid-template-columns: 40% auto;
+  grid-column-gap: 1vw;
+}
+
+.category-insight, .merchant-insight {
+  margin: 1vw;
+  text-align: justify;
+}
+
+.show-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

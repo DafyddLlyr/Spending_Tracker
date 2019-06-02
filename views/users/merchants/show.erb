@@ -1,27 +1,36 @@
+<div class="show-card">
+  <div class="show-header">
 <header>
   <h1><%= @merchant.name %></h1>
 </header>
+<a href="./<%= @merchant.id %>/edit" class="small-edit-button"><i class="far fa-edit">&nbsp;</i>Edit</a>
+</div>
 
-<p><a href="./<%= @merchant.id %>/edit">Edit mechant</a></p>
+<div class="merchant-insight">
+  <h3>Insight</h3>
+  <br>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</div>
 
 <div class="table-container flex">
 <table>
   <tr>
-    <th>id</th>
     <th>Date</th>
     <th>Merchant</th>
     <th>Category</th>
+    <th>Description</th>
     <th>Amount</th>
   </tr>
   <% for transaction in @transactions %>
     <% if transaction.merchant_id == @merchant.id %>
-      <tr>
-        <td><a href="../transactions/<%= transaction.id %>"><%= transaction.id %></a></td>
-        <td><%= transaction.transaction_date %></td>
-        <td><%= transaction.merchant.name %></td>
-        <td><%= transaction.category.name.capitalize %></td>
-        <td><%= transaction.pretty_value %></td>
-      </tr>
+    <tr>
+      <td><a href="../transactions/<%= transaction.id %>"><%= transaction.transaction_date %></a></td>
+      <td><a href="../transactions/<%= transaction.id %>"><%= transaction.merchant.name %></a></td>
+      <td><a href="../transactions/<%= transaction.id %>"><%= transaction.category.name.capitalize %></a></td>
+      <td><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_description %></a></td>
+      <td class="amount"><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_value %></a></td>
+    </tr>
     <% end %>
   <% end %>
   <tfoot>
