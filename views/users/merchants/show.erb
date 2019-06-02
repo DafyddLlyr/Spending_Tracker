@@ -1,8 +1,8 @@
 <header>
-  <h1><%= @category.name.capitalize %></h1>
+  <h1><%= @merchant.name %></h1>
 </header>
 
-<p><a href="./<%= @category.id %>/edit">Edit category</a></p>
+<p><a href="./<%= @merchant.id %>/edit">Edit mechant</a></p>
 
 <div class="table-container flex">
 <table>
@@ -14,7 +14,7 @@
     <th>Amount</th>
   </tr>
   <% for transaction in @transactions %>
-    <% if transaction.category_id == @category.id %>
+    <% if transaction.merchant_id == @merchant.id %>
       <tr>
         <td><a href="../transactions/<%= transaction.id %>"><%= transaction.id %></a></td>
         <td><%= transaction.transaction_date %></td>
@@ -30,7 +30,7 @@
       <% pounds = 0 %>
       <% pence = 0 %>
       <% @transactions.each do |transaction| %>
-        <% if transaction.category_id == @category.id %>
+        <% if transaction.merchant_id == @merchant.id %>
           <% pounds += transaction.pounds %>
           <% pence += transaction.pence %>
         <% end %>
@@ -41,5 +41,5 @@
     </td>
   </tfoot>
 </table>
-</div>  
+</div>
 </div>
