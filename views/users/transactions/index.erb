@@ -5,7 +5,6 @@
 <div class="table-container flex">
 <table>
   <tr>
-    <th>id</th>
     <th>Date</th>
     <th>Merchant</th>
     <th>Category</th>
@@ -14,8 +13,7 @@
   </tr>
   <% for transaction in @transactions %>
   <tr>
-    <td><a href="transactions/<%= transaction.id %>"><%= transaction.id %></a></td>
-    <td><a href="transactions/<%= transaction.id %>"><%= transaction.transaction_date %></a></td>
+    <td><a href="transactions/<%= transaction.id %>"><%= transaction.pretty_date %></a></td>
     <td><a href="transactions/<%= transaction.id %>"><%= transaction.merchant.name %></a></td>
     <td><a href="transactions/<%= transaction.id %>"><%= transaction.category.name.capitalize %></a></td>
     <td><a href="transactions/<%= transaction.id %>"><%= transaction.pretty_description %></a></td>
@@ -23,7 +21,7 @@
   </tr>
   <% end %>
   <tfoot>
-    <td colspan="5" class="empty"></td>
+    <td colspan="4" class="empty"></td>
     <td class="sum">
       <% pounds = 0 %>
       <% pence = 0 %>

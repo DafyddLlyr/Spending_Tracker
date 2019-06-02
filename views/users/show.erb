@@ -18,7 +18,7 @@
     <a href="./<%= @user.id %>/transactions/<%= transaction.id %>">
       <div class="profile-transaction shadow">
         <div class="recent-transaction-date">
-          <%= transaction.transaction_date %>
+          <%= transaction.pretty_date %>
         </div>
         <%= transaction.pretty_value %> at <%= transaction.merchant.name %> on <%= transaction.category.name.capitalize %>
       </div>

@@ -8,7 +8,7 @@
     <p><%= @transaction.pretty_value %></p>
 
     <h2>Date: </h2>
-    <p><%= @transaction.transaction_date %></p>
+    <p><%= @transaction.pretty_date %></p>
 
     <h2>Description: </h2>
     <p><%= @transaction.description == "" ? "N/A" : @transaction.description %></p>

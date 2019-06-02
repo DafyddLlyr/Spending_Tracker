@@ -25,7 +25,7 @@
   <% for transaction in @transactions %>
     <% if transaction.merchant_id == @merchant.id %>
     <tr>
-      <td><a href="../transactions/<%= transaction.id %>"><%= transaction.transaction_date %></a></td>
+      <td><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_date %></a></td>
       <td><a href="../transactions/<%= transaction.id %>"><%= transaction.merchant.name %></a></td>
       <td><a href="../transactions/<%= transaction.id %>"><%= transaction.category.name.capitalize %></a></td>
       <td><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_description %></a></td>

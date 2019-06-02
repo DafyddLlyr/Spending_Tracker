@@ -63,6 +63,10 @@ class Transaction
     @description.length > 30 ? @description[0..30].concat("...") : @description
   end
 
+  def pretty_date()
+    return @transaction_date.strftime("%m/%d/%Y")
+  end
+
   def merchant()
     sql = "SELECT * FROM merchants WHERE id = $1"
     values = [@merchant_id]
