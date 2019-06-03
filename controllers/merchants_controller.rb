@@ -30,6 +30,7 @@ get "/users/:user_id/merchants/:id" do
   @user = User.find(params["user_id"])
   @merchant = Merchant.find(params["id"])
   @transactions = Transaction.all()
+  @budget = Budget.new(@user)
   erb(:"users/merchants/show")
 end
 

@@ -43,7 +43,7 @@ class User
   def budget_percent
     budget_float = ((@budget_pounds * 100) + @budget_pence).to_f
     spent_float = ((@spent_pounds * 100) + @spent_pence).to_f
-    return ((spent_float / budget_float) * 100)
+    return ((spent_float / budget_float) * 100).to_i
   end
 
   def pretty_budget_percent
@@ -59,7 +59,14 @@ class User
   end
 
   def update()
-    sql = "UPDATE users SET (budget_pounds, budget_pence, spent_pounds, spent_pence) = ($1, $2, $3, $4) WHERE id = $5"
+    sql = "UPDATE users SET
+    (
+      budget_pounds,
+      budget_pence,
+      spent_pounds,
+      spent_pence
+    )
+    = ($1, $2, $3, $4) WHERE id = $5"
     values = [@budget_pounds, @budget_pence, @spent_pounds, @spent_pence, @id]
     SqlRunner.run(sql, values)
   end

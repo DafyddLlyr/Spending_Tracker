@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+# require_relative("transaction")
 
 class Merchant
 
@@ -23,7 +24,11 @@ class Merchant
     values = [@name, @id]
     SqlRunner.run(sql, values)
   end
+
+  def largest_transaction(user)
     
+  end
+
   def self.user_transactions(user)
     sql = "SELECT * FROM transactions
     WHERE merchant_id = $1

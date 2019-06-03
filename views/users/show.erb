@@ -2,7 +2,7 @@
 
   <div class="left flex-column">
     <div id="profile-header">
-      <h1>Hello <%= @user.first_name %>!</h1>
+      <h1><%= @greetings.sample %> <%= @user.first_name %>!</h1>
     </div>
 
     <div id="budget-overview" class="flex-center-center flex-column shadow">

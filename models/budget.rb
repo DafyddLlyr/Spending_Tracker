@@ -25,11 +25,14 @@ class Budget
   def merc_resolve_total(grouping)
     pounds = merc_sum_pounds(grouping)
     pence = merc_sum_pence(grouping)
-
     pounds += pence / 100
     pence %= 100
-
     return { "pounds" => pounds, "pence" => pence }
+  end
+
+  def pretty_value(grouping)
+    values = merc_resolve_total(grouping)
+    return "£#{values["pounds"]}.#{values["pence"]}"
   end
 
   def status

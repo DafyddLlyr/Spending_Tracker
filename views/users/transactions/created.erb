@@ -2,7 +2,7 @@
   <h1>Success!</h1>
 </header>
 <div class="confirmation-card flex-center-center flex-column shadow">
-<p>New transaction of <%= @transaction.pretty_value %> to <% @transaction.merchant.name %>, made on <%= @transaction.pretty_date %> has been added to your transaction history.</p>
+<p>New transaction of <%= @transaction.pretty_value %> to <%= @transaction.merchant.name %>, made on <%= @transaction.pretty_date %> has been added to your transaction history.</p>
 <br>
 <a href="/users/<%= @transaction.user_id %>">Back to profile</a>
 </div>

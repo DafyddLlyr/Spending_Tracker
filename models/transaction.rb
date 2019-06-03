@@ -64,7 +64,7 @@ class Transaction
   end
 
   def pretty_date()
-    return @transaction_date.strftime("%m/%d/%Y")
+    return @transaction_date.strftime("%d/%m/%Y")
   end
 
   def merchant()
