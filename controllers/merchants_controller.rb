@@ -8,7 +8,9 @@ also_reload('../models/*')
 
 get "/users/:user_id/merchants" do
   @user = User.find(params["user_id"])
+  @budget = Budget.new(@user)
   @merchants = @user.merchants()
+  # binding.pry
   erb(:"/users/merchants/index")
 end
 

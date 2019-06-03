@@ -3,6 +3,7 @@
 </header>
 
 <div class="flex-container">
+
   <% for merchant in @merchants.uniq { |merchant| merchant.name } %>
     <a href="/users/<%= @user.id %>/merchants/<%= Merchant.find_name(merchant.name).id%>">
     <div class="index-box flex-center-center shadow"><%= merchant.name %></div>

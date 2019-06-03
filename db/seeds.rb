@@ -2,6 +2,7 @@ require_relative("../models/category")
 require_relative("../models/merchant")
 require_relative("../models/user")
 require_relative("../models/transaction")
+require_relative("../models/budget")
 require("pry")
 
 Category.delete_all()
@@ -33,7 +34,10 @@ user_1 = User.new ( {
     "first_name" => "Jim",
     "last_name" => "Beam",
     "birth_date" => "5th Feb 1980",
-    "budget" => 500
+    "budget_pounds" => 500,
+    "budget_pence" => 0,
+    "spent_pounds" => 0,
+    "spent_pence" => 0
   } )
 user_1.save()
 
@@ -58,6 +62,8 @@ transaction_2 = Transaction.new( {
   "description" => "Weekly bus ticket"
   })
 transaction_2.save()
+
+budget = Budget.new(user_1)
 
 binding.pry
 nil

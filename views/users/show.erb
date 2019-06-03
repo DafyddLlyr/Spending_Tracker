@@ -5,8 +5,12 @@
       <h1>Hello <%= @user.first_name %>!</h1>
     </div>
 
-    <div id="budget-overview" class="flex-center-center shadow">
-      <p>Budget bar here</p>
+    <div id="budget-overview" class="flex-center-center flex-column shadow">
+      <div class="budget-bar shadow">
+        <div class="budget-indicator <%= @budget.status %>"></div>
+      </div>
+      <p>Your remaining budget is <%= @user.pretty_remaining_budget %></p>
+      <p>You have <%= 100 - @user.budget_percent %>% remaining</p>
     </div>
 
     <a href="./<%=@user.id%>/transactions/new" id="profile-add-transaction" class="flex-center-center shadow">

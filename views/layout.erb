@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/styles/forms.css">
   <link rel="stylesheet" href="/styles/profile.css">
   <link rel="stylesheet" href="/styles/buttons.css">
+  <link rel="stylesheet" href="/styles/budget.css">
   <link rel="stylesheet" href="/styles/tables.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha38450oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Lobster|Montserrat&display=swap" rel="stylesheet">
@@ -17,15 +18,36 @@
   <nav class="flex-column">
     <h1><a href="/">Spending Tracker</a></h1>
     <ul class="flex-column">
-      <li><a href="/users/1">Profile</a></li>
-      <li><a href="/users/1/transactions/new">New Transaction</a></li>
-      <li><a href="/users/1/transactions">All Transactions</a></li>
+      <li>
+        <i class="fas fa-user-circle">&nbsp;</i>
+        <a href="/users/1">Profile</a>
+      </li>
       <br>
-      <li><a href="/users/1/categories/new">New Category</a></li>
-      <li><a href="/users/1/categories">View Categories</a></li>
+      <li>
+        <i class="fas fa-plus-circle">&nbsp;</i>
+        <a href="/users/1/transactions/new">New Transaction</a>
+      </li>
+      <li>
+        <i class="fas fa-list-alt">&nbsp;</i>
+        <a href="/users/1/transactions">All Transactions</a>
+      </li>
       <br>
-      <li><a href="/users/1/merchants/new">New Merchant</a></li>
-      <li><a href="/users/1/merchants">View Merchants</a></li>
+      <li>
+        <i class="fas fa-plus-circle">&nbsp;</i>
+        <a href="/users/1/categories/new">New Category</a>
+      </li>
+      <li><i class="fas fa-list-alt">&nbsp;</i>
+        <a href="/users/1/categories">View Categories</a>
+      </li>
+      <br>
+      <li>
+        <i class="fas fa-plus-circle">&nbsp;</i>
+        <a href="/users/1/merchants/new">New Merchant</a>
+      </li>
+      <li>
+        <i class="fas fa-list-alt">&nbsp;</i>
+        <a href="/users/1/merchants">View Merchants</a>
+      </li>
     </ul>
   </nav>
   <section id="main-page">

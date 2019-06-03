@@ -22,6 +22,11 @@ end
 post "/users/:user_id/transactions" do
   @transaction = Transaction.new(params)
   @transaction.save()
+  @user = User.find(params["user_id"].to_i)
+  @user.spent_pounds += @transaction.pounds
+  @user.spent_pence += @transaction.pence
+  @user.resolve_budget()
+  @user.update()
   erb(:"/users/transactions/created")
 end
 
@@ -33,6 +38,11 @@ end
 post "/users/:user_id/transactions/:id/delete" do
   @transaction = Transaction.find(params["id"])
   @transaction.delete()
+  @user = User.find(params["user_id"].to_i)
+  @user.spent_pounds -= @transaction.pounds
+  @user.spent_pence -= @transaction.pence
+  @user.resolve_budget()
+  @user.update()
   erb(:"users/transactions/deleted")
 end
 

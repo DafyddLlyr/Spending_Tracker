@@ -51,8 +51,27 @@
 
 #budget-overview {
   background-color: white;
-  height: 10vh;
-  font-size: 2rem;
+  height: 20vh;
+  width: 100%;
+  /* font-size: 1.5rem; */
+  text-align: center;
+  justify-content: space-around;
+}
+
+.budget-bar {
+  width: 90%;
+  background-color: lightgrey;
+  border-radius: 30px;
+  margin: 1vw;
+  height: 7vh;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.budget-indicator {
+  border-radius: 30px 0px 0px 30px;
+  height: 100%;
+  /* align-self: flex-start; */
 }
 
 #profile-add-transaction {
