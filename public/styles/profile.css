@@ -1,6 +1,6 @@
 #profile {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 60% auto;
   margin: 0vw 2vw 0vw 1vw;
   grid-column-gap: 1vw;
 }
@@ -105,4 +105,23 @@
 .savings {
   margin-bottom: 1vw;
   flex-grow: 2;
+}
+
+.goal {
+  flex-direction: column;
+  background-color: none;
+  box-shadow: none;
+  height: 50vh;
+  justify-content: space-around;
+}
+
+.goal p {
+  font-style: italic;
+}
+
+.goal-image {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 100%;
+  background-color: blue;
 }

@@ -33,8 +33,10 @@
 
   <div class="right flex-column">
 
-    <div class="card flex-center-center goal shadow">
-      <h2>Goal</h2>
+    <div class="flex-center-center goal">
+      <h2>You Goal</h2>
+      <img src="/images/goal/<%= @advisor.img %>" alt="goal_image" class="goal-image shadow">
+      <p class="user-goal">"<%= @user.goal %>"</p>
     </div>
 
     <div class="card flex-center-center advice shadow">

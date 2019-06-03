@@ -3,7 +3,7 @@ require_relative("../db/sql_runner")
 class User
 
   attr_reader :id, :first_name, :last_name, :birth_date
-  attr_accessor :budget_pounds, :budget_pence, :spent_pounds, :spent_pence
+  attr_accessor :budget_pounds, :budget_pence, :spent_pounds, :spent_pence, :goal
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -14,6 +14,7 @@ class User
     @budget_pence = options["budget_pence"].to_i
     @spent_pounds = options["spent_pounds"].to_i
     @spent_pence = options["spent_pence"].to_i
+    @goal = options["goal"].chomp
   end
 
   def pretty_budget()
@@ -51,9 +52,19 @@ class User
   end
 
   def save()
-    sql = "INSERT INTO users (first_name, last_name, birth_date, budget_pounds, budget_pence, spent_pounds, spent_pence)
-    VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id"
-    values = [@first_name, @last_name, @birth_date, @budget_pounds, @budget_pence, @spent_pounds, @spent_pence]
+    sql = "INSERT INTO users
+    (
+      first_name,
+      last_name,
+      birth_date,
+      budget_pounds,
+      budget_pence,
+      spent_pounds,
+      spent_pence,
+      goal
+    )
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id"
+    values = [@first_name, @last_name, @birth_date, @budget_pounds, @budget_pence, @spent_pounds, @spent_pence, @goal]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
@@ -64,10 +75,11 @@ class User
       budget_pounds,
       budget_pence,
       spent_pounds,
-      spent_pence
+      spent_pence,
+      goal
     )
-    = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@budget_pounds, @budget_pence, @spent_pounds, @spent_pence, @id]
+    = ($1, $2, $3, $4, $5) WHERE id = $6"
+    values = [@budget_pounds, @budget_pence, @spent_pounds, @spent_pence, @goal, @id]
     SqlRunner.run(sql, values)
   end
 

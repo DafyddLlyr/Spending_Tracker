@@ -1,5 +1,5 @@
 <header>
-  <h1>Edit Budget </h1>
+  <h1>Edit Profile</h1>
 </header>
 
 <div class="new-card shadow">
@@ -12,11 +12,14 @@
         <input type="number" name="budget_pence" min="00" max= "99" value="<%= @user.budget_pence %>" class="pence" required>
       </div>
 
-      <label for="budget-reset">Reset Budget?</label>
+      <label for="budget-reset">Reset Budget? </label>
       <input type="checkbox" name="reset">
 
+      <label for="goal">My goal: </label>
+      <textarea rows="4" cols="40" name="goal" class="goal-form"><%= @user.goal %>
+      </textarea>
       <div class="new-cat-merc flex-center-center">
-        <input type="submit" value="Edit Budget" class="new-cat-merc-submit">
+        <input type="submit" value="Edit Profile" class="new-cat-merc-submit">
       </div>
     </div>
   </form>

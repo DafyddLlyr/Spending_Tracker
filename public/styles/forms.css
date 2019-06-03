@@ -111,14 +111,15 @@ option {
 
 .budget-form {
   display: grid;
-  grid-template-columns: 40% auto;
-  grid-template-rows: 4vh 4vh 6vh 6vh;
+  grid-template-columns: 30% auto;
+  grid-template-rows: 4vh 4vh 8vh 6vh 6vh;
   grid-column-gap: 1vw;
   grid-row-gap: 1vw;
   padding: 2vw 6vw;
   grid-template-areas:
     "budget budget"
     "reset reset"
+    "goal goal"
     ". ."
     "buttons buttons";
   text-align: right;
@@ -135,4 +136,9 @@ option {
 input[type="checkbox"] {
   height: 20px;
   width: 20px;
+}
+
+.goal-form {
+  color: black;
+  font-size: 1.2rem;
 }

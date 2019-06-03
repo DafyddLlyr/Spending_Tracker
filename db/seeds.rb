@@ -31,13 +31,14 @@ merchant_3 = Merchant.new({ "name" => "First Bus" })
 merchant_3.save
 
 user_1 = User.new ( {
-    "first_name" => "Jim",
-    "last_name" => "Beam",
+    "first_name" => "Dafydd",
+    "last_name" => "Pearson",
     "birth_date" => "5th Feb 1980",
     "budget_pounds" => 500,
     "budget_pence" => 0,
     "spent_pounds" => 0,
-    "spent_pence" => 0
+    "spent_pence" => 0,
+    "goal" => "I want to save for a holiday"
   } )
 user_1.save()
 

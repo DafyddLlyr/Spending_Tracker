@@ -11,7 +11,8 @@ CREATE TABLE users (
   budget_pounds INT4,
   budget_pence INT4,
   spent_pounds INT4,
-  spent_pence INT4
+  spent_pence INT4,
+  goal VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE merchants (
