@@ -8,8 +8,8 @@
 
       <label for="budget">Budget: </label>
       <div class="budget">
-        <input type="number" name="budget_pounds" min="0" value="<%= @user.budget_pounds %>" class="pounds" required>
-        <input type="number" name="budget_pence" min="00" max= "99" value="<%= @user.budget_pence %>" class="pence" required>
+        <input type="number" name="budget_pounds" min="0" value="<%= @user.budget / 100 %>" class="pounds" required>
+        <input type="number" name="budget_pence" min="00" max= "99" value="<%= @user.budget % 100 %>" class="pence" required>
       </div>
 
       <label for="budget-reset">Reset Budget? </label>

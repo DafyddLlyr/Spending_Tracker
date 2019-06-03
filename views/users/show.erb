@@ -9,7 +9,7 @@
       <div class="budget-bar shadow">
         <div class="budget-indicator <%= @budget.status %>"></div>
       </div>
-      <p>Your remaining budget is <%= @user.pretty_remaining_budget %></p>
+      <p>Your remaining budget is <%= @user.pretty_print(@user.remaining_budget) %></p>
       <p>You have <%= 100 - @user.budget_percent %>% remaining</p>
     </div>
 

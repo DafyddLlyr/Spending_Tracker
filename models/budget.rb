@@ -4,35 +4,18 @@ class Budget
     @user = user
   end
 
-  def merc_sum_pounds(grouping)
-    # grouping_id = grouping.class.to_s.downcase.concat("_id")
-    sql = "SELECT SUM(pounds) FROM transactions
-    WHERE merchant_id = $1 AND user_id = $2"
+  def sum_pounds(grouping)
+    grouping_id = grouping.class.to_s.downcase.concat("_id")
+    sql = "SELECT SUM(value) FROM transactions
+    WHERE" + grouping_id + " = $1 AND user_id = $2"
     values = [grouping.id, @user.id]
     result = SqlRunner.run(sql, values)
     return result[0]["sum"].to_i
-  end
-
-  def merc_sum_pence(grouping)
-    # grouping_id = grouping.class.to_s.downcase.concat("_id")
-    sql = "SELECT SUM(pence) FROM transactions
-    WHERE merchant_id = $1 AND user_id = $2"
-    values = [grouping.id, @user.id]
-    result = SqlRunner.run(sql, values)
-    return result[0]["sum"].to_i
-  end
-
-  def merc_resolve_total(grouping)
-    pounds = merc_sum_pounds(grouping)
-    pence = merc_sum_pence(grouping)
-    pounds += pence / 100
-    pence %= 100
-    return { "pounds" => pounds, "pence" => pence }
   end
 
   def pretty_value(grouping)
-    values = merc_resolve_total(grouping)
-    return "£#{values["pounds"]}.#{values["pence"]}"
+    value = sum_pounds(grouping)
+    @value.to_s.insert(-3, ".").prepend("£")
   end
 
   def status

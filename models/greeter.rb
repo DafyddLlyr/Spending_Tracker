@@ -8,8 +8,8 @@ class Greeter
       "Alright",
       "G'day",
       "Howdy",
-      "Konnichiwa",
-      "Guten Tag"
+      "Guten Tag",
+      "Aloha"
     ]
   end
 

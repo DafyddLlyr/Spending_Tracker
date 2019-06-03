@@ -3,13 +3,12 @@ require_relative("../db/sql_runner")
 class Transaction
 
   attr_reader :id, :user_id
-  attr_accessor :transaction_date, :pounds, :pence, :merchant_id, :category_id, :description
+  attr_accessor :transaction_date, :value, :merchant_id, :category_id, :description
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @transaction_date = Date.parse(options["transaction_date"])
-    @pounds = options["pounds"].to_i
-    @pence = options["pence"].to_i
+    @value = options["value"].to_i
     @merchant_id = options["merchant_id"].to_i
     @user_id = options["user_id"].to_i
     @category_id = options["category_id"].to_i
@@ -20,15 +19,14 @@ class Transaction
     sql = "INSERT INTO transactions
     (
       transaction_date,
-      pounds,
-      pence,
+      value,
       merchant_id,
       user_id,
       category_id,
       description
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id"
-    values = [@transaction_date, @pounds, @pence, @merchant_id, @user_id, @category_id, @description]
+    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+    values = [@transaction_date, @value, @merchant_id, @user_id, @category_id, @description]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
@@ -37,15 +35,14 @@ class Transaction
     sql = "UPDATE transactions SET
     (
       transaction_date,
-      pounds,
-      pence,
+      value,
       merchant_id,
       user_id,
       category_id,
       description
     )
-    = ($1, $2, $3, $4, $5, $6, $7) WHERE id = $8"
-    values = [@transaction_date, @pounds, @pence, @merchant_id, @user_id, @category_id, @description, @id]
+    = ($1, $2, $3, $4, $5, $6) WHERE id = $8"
+    values = [@transaction_date, @value, @merchant_id, @user_id, @category_id, @description, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -56,7 +53,7 @@ class Transaction
   end
 
   def pretty_value()
-   @pence < 10 ? "£#{@pounds}.0#{@pence}" : "£#{@pounds}.#{@pence}"
+    @value.to_s.insert(-3, ".").prepend("£")
   end
 
   def pretty_description()

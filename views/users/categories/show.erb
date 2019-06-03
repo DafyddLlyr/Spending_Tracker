@@ -36,17 +36,11 @@
     <tfoot>
       <td colspan="4" class="empty"></td>
       <td class="sum">
-        <% pounds = 0 %>
-        <% pence = 0 %>
-        <% @transactions.each do |transaction| %>
-          <% if transaction.category_id == @category.id %>
-            <% pounds += transaction.pounds %>
-            <% pence += transaction.pence %>
-          <% end %>
+        <% sum = 0 %>
+        <% for transaction in @transactions %>
+        <% sum += transaction.value if transaction.category_id == @category.id %>
         <% end %>
-        <% pounds += pence / 100 %>
-        <% pence %= 100 %>
-        <%= pence < 10 ? "£#{pounds}.0#{pence}" : "£#{pounds}.#{pence}" %>
+        <%= sum.to_s.insert(-3, ".").prepend("£") %>
       </td>
     </tfoot>
   </table>

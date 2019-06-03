@@ -4,7 +4,18 @@ class Advisor
 
   def initialize(user)
     @user = user
-    @goals = ["holiday", "house", "car", "birthday", "wedding", "codeclan", "education"]
+    @goals =
+    [
+      "holiday",
+      "house",
+      "car",
+      "birthday",
+      "wedding",
+      "codeclan",
+      "education",
+      "dog",
+      "retire"
+    ]
   end
 
   def user_goal()
@@ -13,7 +24,7 @@ class Advisor
 
   def img()
     goal = user_goal()
-    goal.length == 0 ? @goals.sample.concat(".jpg") : goal[0].concat(".jpg")
+    goal.length == 0 ? "saving.jpg" : goal[0].concat(".jpg")
   end
 
 end

@@ -8,10 +8,8 @@ CREATE TABLE users (
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   birth_date DATE NOT NULL,
-  budget_pounds INT4,
-  budget_pence INT4,
-  spent_pounds INT4,
-  spent_pence INT4,
+  budget INT4,
+  spent INT4,
   goal VARCHAR(255) NOT NULL
 );
 
@@ -28,9 +26,7 @@ CREATE TABLE categories (
 CREATE TABLE transactions (
   id SERIAL8 PRIMARY KEY,
   transaction_date DATE NOT NULL,
-  pounds INT4 DEFAULT 0,
-  -- how do I limit pence?
-  pence INT2 DEFAULT 0,
+  value INT4,
   user_id INT8 REFERENCES users(id) ON DELETE CASCADE,
   merchant_id INT8 REFERENCES merchants(id) ON DELETE CASCADE,
   category_id INT8 REFERENCES categories(id) ON DELETE CASCADE,

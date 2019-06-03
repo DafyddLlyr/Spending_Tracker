@@ -14,7 +14,6 @@
   <input type="number" name="pence" min="0" max= "99" value="<%= @transaction.pence %>" class="pence" required>
 </div>
 
-
   <label for="merchant-select">Merchant: </label>
   <select name="merchant_id" required>
     <% for merchant in @merchants %>
@@ -28,7 +27,6 @@
     <option value="<%= category.id %>"><%= category.name.capitalize %></option>
     <% end %>
   </select>
-
 
   <label for="description">Description: </label>
   <textarea name="description" rows="4" cols="50"><%= @transaction.description %></textarea>

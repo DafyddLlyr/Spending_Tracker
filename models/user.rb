@@ -3,48 +3,28 @@ require_relative("../db/sql_runner")
 class User
 
   attr_reader :id, :first_name, :last_name, :birth_date
-  attr_accessor :budget_pounds, :budget_pence, :spent_pounds, :spent_pence, :goal
+  attr_accessor :budget, :spent, :goal
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @first_name = options["first_name"]
     @last_name = options["last_name"]
     @birth_date = Date.parse(options["birth_date"])
-    @budget_pounds = options["budget_pounds"].to_i
-    @budget_pence = options["budget_pence"].to_i
-    @spent_pounds = options["spent_pounds"].to_i
-    @spent_pence = options["spent_pence"].to_i
+    @budget = options["budget"].to_i
+    @spent = options["spent"].to_i
     @goal = options["goal"].chomp
   end
 
-  def pretty_budget()
-    @budget_pence < 10 ? "£#{@budget_pounds}.0#{@budget_pence}" : "£#{@budget_pounds}.#{@budget_pence}"
+  def pretty_print(value)
+    value.to_s.insert(-3, ".").prepend("£")
   end
 
-  def pretty_spent_budget()
-    @spent_pence < 10 ? "£#{@spent_pounds}.0#{@spent_pence}" : "£#{@spent_pounds}.#{@spent_pence}"
-  end
-
-  def resolve_budget()
-    if @spent_pence >= 100
-      @spent_pounds += 1
-      @spent_pence -= 100
-    end
-  end
-
-  def pretty_remaining_budget()
-    pounds = @budget_pounds - @spent_pounds
-    pence = @budget_pence - @spent_pence
-
-    (pence += 100; pounds -= 1) if pence < 0
-
-    pence < 10 ? "£#{pounds}.0#{pence}" : "£#{pounds}.#{pence}"
+  def remaining_budget()
+    return @budget - @spent
   end
 
   def budget_percent
-    budget_float = ((@budget_pounds * 100) + @budget_pence).to_f
-    spent_float = ((@spent_pounds * 100) + @spent_pence).to_f
-    return ((spent_float / budget_float) * 100).to_i
+    return (@spent.to_f / @budget.to_f) * 100.to_i
   end
 
   def pretty_budget_percent
@@ -57,14 +37,20 @@ class User
       first_name,
       last_name,
       birth_date,
-      budget_pounds,
-      budget_pence,
-      spent_pounds,
-      spent_pence,
+      budget,
+      spent,
       goal
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id"
-    values = [@first_name, @last_name, @birth_date, @budget_pounds, @budget_pence, @spent_pounds, @spent_pence, @goal]
+    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+    values =
+    [
+      @first_name,
+      @last_name,
+      @birth_date,
+      @budget,
+      @spent,
+      @goal
+    ]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
@@ -72,14 +58,18 @@ class User
   def update()
     sql = "UPDATE users SET
     (
-      budget_pounds,
-      budget_pence,
-      spent_pounds,
-      spent_pence,
+      budget,
+      spent,
       goal
     )
     = ($1, $2, $3, $4, $5) WHERE id = $6"
-    values = [@budget_pounds, @budget_pence, @spent_pounds, @spent_pence, @goal, @id]
+    values =
+    [
+      @budget,
+      @spent,
+      @goal,
+      @id
+    ]
     SqlRunner.run(sql, values)
   end
 
@@ -135,6 +125,5 @@ class User
     sql = "DELETE FROM users"
     SqlRunner.run(sql)
   end
-
 
 end

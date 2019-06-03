@@ -34,18 +34,15 @@ user_1 = User.new ( {
     "first_name" => "Dafydd",
     "last_name" => "Pearson",
     "birth_date" => "5th Feb 1980",
-    "budget_pounds" => 500,
-    "budget_pence" => 0,
-    "spent_pounds" => 0,
-    "spent_pence" => 0,
+    "budget" => 50000,
+    "spent" => 0,
     "goal" => "I want to save for a holiday"
   } )
 user_1.save()
 
 transaction_1 = Transaction.new( {
   "transaction_date" => "1/06/19",
-  "pounds" => 4,
-  "pence" => 99,
+  "value" => 499,
   "merchant_id" => merchant_2.id,
   "user_id" => user_1.id,
   "category_id" => category_1.id,
@@ -55,8 +52,7 @@ transaction_1.save()
 
 transaction_2 = Transaction.new( {
   "transaction_date" => "1/05/19",
-  "pounds" => 10,
-  "pence" => 99,
+  "value" => 1099,
   "merchant_id" => merchant_2.id,
   "user_id" => user_1.id,
   "category_id" => category_2.id,

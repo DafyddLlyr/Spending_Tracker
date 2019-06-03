@@ -1,29 +1,27 @@
 <div class="show-card shadow">
   <div class="show-header">
-<header>
-  <h1><%= @merchant.name %></h1>
-</header>
-<a href="./<%= @merchant.id %>/edit" class="small-button"><i class="far fa-edit">&nbsp;</i>Edit</a>
-</div>
+    <header>
+      <h1><%= @merchant.name %></h1>
+    </header>
+    <a href="./<%= @merchant.id %>/edit" class="small-button"><i class="far fa-edit">&nbsp;</i>Edit</a>
+  </div>
 
-<div class="merchant-insight">
-  <h3>Insight</h3>
-  <br>
-  <p>You've spent <b><%= @budget.pretty_value(@merchant) %></b> so far this month at <%= @merchant.name %></p>
-  <p> The largest transaction you've made with them was ...
-</div>
+  <div class="merchant-insight">
+    <h3>Insight</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
 </div>
 
 <div class="table-container flex">
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Merchant</th>
-    <th>Category</th>
-    <th>Description</th>
-    <th>Amount</th>
-  </tr>
-  <% for transaction in @transactions %>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Merchant</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Amount</th>
+    </tr>
+    <% for transaction in @transactions %>
     <% if transaction.merchant_id == @merchant.id %>
     <tr>
       <td><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_date %></a></td>
@@ -33,23 +31,17 @@
       <td class="amount"><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_value %></a></td>
     </tr>
     <% end %>
-  <% end %>
-  <tfoot>
-    <td colspan="4" class="empty"></td>
-    <td class="sum">
-      <% pounds = 0 %>
-      <% pence = 0 %>
-      <% @transactions.each do |transaction| %>
-        <% if transaction.merchant_id == @merchant.id %>
-          <% pounds += transaction.pounds %>
-          <% pence += transaction.pence %>
+    <% end %>
+    <tfoot>
+      <td colspan="4" class="empty"></td>
+      <td class="sum">
+        <% sum = 0 %>
+        <% for transaction in @transactions %>
+        <% sum += transaction.value if transaction.merchant_id == @merchant.id %>
         <% end %>
-      <% end %>
-      <% pounds += pence / 100 %>
-      <% pence %= 100 %>
-      <%= pence < 10 ? "£#{pounds}.0#{pence}" : "£#{pounds}.#{pence}" %>
-    </td>
-  </tfoot>
-</table>
+        <%= sum.to_s.insert(-3, ".").prepend("£") %>
+      </td>
+    </tfoot>
+  </table>
 </div>
 </div>

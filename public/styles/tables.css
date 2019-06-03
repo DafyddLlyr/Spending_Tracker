@@ -41,7 +41,7 @@ th {
   border-radius: 0px 0px 10px 10px;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
