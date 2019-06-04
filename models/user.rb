@@ -3,7 +3,7 @@ require_relative("../db/sql_runner")
 class User
 
   attr_reader :id, :first_name, :last_name, :birth_date
-  attr_accessor :budget, :spent, :goal
+  attr_accessor :budget, :spent, :goal, :savings
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -13,6 +13,7 @@ class User
     @budget = options["budget"].to_i
     @spent = options["spent"].to_i
     @goal = options["goal"].chomp
+    @savings = options["savings"].to_i
   end
 
   def pretty_print(value)
@@ -53,9 +54,10 @@ class User
       birth_date,
       budget,
       spent,
-      goal
+      goal,
+      savings
     )
-    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+    VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id"
     values =
     [
       @first_name,
@@ -63,7 +65,8 @@ class User
       @birth_date,
       @budget,
       @spent,
-      @goal
+      @goal,
+      @savings
     ]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
@@ -74,14 +77,16 @@ class User
     (
       budget,
       spent,
-      goal
+      goal,
+      savings
     )
-    = ($1, $2, $3) WHERE id = $4"
+    = ($1, $2, $3, $4) WHERE id = $5"
     values =
     [
       @budget,
       @spent,
       @goal,
+      @savings,
       @id
     ]
     SqlRunner.run(sql, values)

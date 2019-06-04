@@ -233,3 +233,10 @@ header {
 .show-container {
   justify-content: space-between;
 }
+
+.saving-success {
+  background-color: lightgreen;
+  width: 100%;
+  padding: 3vw;
+  margin-top: 2vw;
+}

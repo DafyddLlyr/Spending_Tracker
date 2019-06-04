@@ -36,7 +36,8 @@ user_1 = User.new ( {
     "birth_date" => "5th Feb 1980",
     "budget" => 50000,
     "spent" => 0,
-    "goal" => "I want to save for a holiday"
+    "goal" => "I want to save for a holiday",
+    "savings" => 0
   } )
 user_1.save()
 

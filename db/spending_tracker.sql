@@ -10,7 +10,8 @@ CREATE TABLE users (
   birth_date DATE NOT NULL,
   budget INT4,
   spent INT4,
-  goal VARCHAR(255) NOT NULL
+  goal VARCHAR(255) NOT NULL,
+  savings INT4
 );
 
 CREATE TABLE merchants (

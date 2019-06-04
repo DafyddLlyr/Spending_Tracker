@@ -107,7 +107,36 @@
 
 .savings {
   margin-bottom: 1vw;
-  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.saving-amount {
+  margin-top: 2vh;
+  background-color: #06BA63;
+  font-size: 4rem;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 100%;
+  color: white;
+  font-weight: bold;
+}
+
+.saving-amount p {
+  position: relative;
+  bottom: 1vw;
+}
+
+.savings-header {
+  background-color: white;
+  border-radius: 50px  ;
+  border: solid #06BA63 3px;
+  width: 15vw;
+  height: 4vw;
+  position: relative;
+  bottom: 4vw;
 }
 
 .goal {

@@ -4,8 +4,16 @@
 <div class="confirmation-card flex-center-center flex-column shadow">
   <p>New transaction of <%= @transaction.pretty_value %> to <%= @transaction.merchant.name %>, made on <%= @transaction.pretty_date %> has been added to your transaction history.</p>
   <br>
+  <% if params["save"] == "on" %>
+  <div class="saving-success">
+    <p>You also made a saving of <%= @user.pretty_print(@saving_amount) %>!</p>
+    <br>
+    <p>Great work!</p>
+  </div>
+  <% end %>
   <a href="/users/<%= @transaction.user_id %>">
     <div class="confirmation-button">
       <i class="fas fa-user-circle">&nbsp;</i>Back to profile
+
     </a>
   </div>

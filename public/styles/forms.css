@@ -3,7 +3,7 @@
   margin: 1vw;
   display: grid;
   grid-template-columns: 20% auto;
-  grid-template-rows: repeat(4, 4vh) 8vh 15vh;
+  grid-template-rows: repeat(4, 4vh) 8vh 4vh auto 15vh;
   grid-row-gap: 1vw;
   grid-column-gap: 2vw;
   padding: 2vw 6vw;
@@ -13,6 +13,8 @@
     "merchant merchant"
     "category category"
     "description description"
+    ". ."
+    "savings savings"
     "buttons buttons"
 }
 
@@ -66,6 +68,7 @@ option {
   font-size: 1.3rem;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
+  border: none;
 }
 
 .new-card {
@@ -143,4 +146,24 @@ input[type="checkbox"] {
 .goal-form {
   color: black;
   font-size: 1.2rem;
+}
+
+.savings-suggest {
+  grid-area: savings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  font-weight: bold;
+  background-color: lightgreen;
+}
+
+.savings-suggest input[type="checkbox"] {
+  height: 30px;
+  width: 30px;
+  margin-right: 2vw;
+}
+
+.savings-suggest label {
+  font-size: 1.3rem;
 }

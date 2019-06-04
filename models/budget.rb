@@ -54,6 +54,10 @@ class Budget
     return ((total_merchant.to_f / total_spending.to_f) * 100).to_i
   end
 
+  def savings_amount
+    return @user.pretty_print(@user.savings)
+  end
+
   def status
     status = 100 - @user.budget_percent
     return "budget-00" if status <= 0

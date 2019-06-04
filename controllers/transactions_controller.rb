@@ -21,11 +21,20 @@ end
 
 post "/users/:user_id/transactions" do
   @transaction = Transaction.new(params)
+  @user = User.find(params["user_id"].to_i)
+
   @transaction.value = (params["pounds"].to_i * 100) + params["pence"].to_i
   @transaction.save()
-  @user = User.find(params["user_id"].to_i)
+
+  @saving_amount = (100 - params["pence"].to_i)
+
+  if @saving_amount != 100 && params["save"] == "on"
+    @user.savings += @saving_amount
+  end
+
   @user.spent += @transaction.value
   @user.update()
+
   erb(:"/users/transactions/created")
 end
 
