@@ -4,7 +4,7 @@
     <div id="profile-header">
       <h1><%= @greetings.sample %> <%= @user.first_name %>!</h1>
     </div>
-
+<div class="time-date"><%= Time.now.strftime("%H:%M %p - %A, %d %B %Y") %> </div>
     <div id="budget-overview" class="flex-center-center flex-column shadow">
       <div class="budget-bar shadow">
         <div class="budget-indicator <%= @budget.status %>"></div>
@@ -16,7 +16,7 @@
     <a href="./<%=@user.id%>/transactions/new" id="profile-add-transaction" class="flex-center-center shadow">
       <i class="fas fa-plus-circle"></i>&nbsp;New transaction
     </a>
-
+<br>
     <h2>Recent Transaction</h2>
     <% for transaction in @user.transactions.first(5) %>
     <a href="./<%= @user.id %>/transactions/<%= transaction.id %>">

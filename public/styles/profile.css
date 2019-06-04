@@ -78,6 +78,9 @@
   font-size: 1.5rem;
   background-color: white;
   height: 10vh;
+  background-color: #06BA63;
+  color: white !important;
+  font-weight: bold;
 }
 
 #profile-add-transaction:hover {
@@ -88,7 +91,7 @@
 }
 
 #profile-add-transaction i {
-  color: #06BA63;
+  color: white;
 }
 
 .flex-center-center {

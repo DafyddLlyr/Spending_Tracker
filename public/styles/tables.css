@@ -8,6 +8,7 @@ table {
   background-color: lightgrey;
   border-collapse: collapse;
   margin: 1vw;
+  text-align: center;
 }
 
 table tr:first-child th:first-child {
@@ -60,4 +61,9 @@ td a:hover {
 
 tr:hover {
   background-color: #06BA63;
+}
+
+.index-tag {
+  color: #036837;
+  font-size: 0.8rem;
 }

@@ -15,7 +15,9 @@
   <tr>
     <td><a href="transactions/<%= transaction.id %>"><%= transaction.pretty_date %></a></td>
     <td><a href="transactions/<%= transaction.id %>"><%= transaction.merchant.name %></a></td>
-    <td><a href="transactions/<%= transaction.id %>"><%= transaction.category.name.capitalize %></a></td>
+    <td><a href="transactions/<%= transaction.id %>">
+      <%= transaction.category.name.capitalize %>
+      <i class="fas fa-tag index-tag">&nbsp;</i></a></td>
     <td><a href="transactions/<%= transaction.id %>"><%= transaction.pretty_description %></a></td>
     <td class="amount"><a href="transactions/<%= transaction.id %>"><%= transaction.pretty_value %></a></td>
   </tr>

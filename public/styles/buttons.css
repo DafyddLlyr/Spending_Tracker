@@ -46,7 +46,6 @@
   margin: 0 1vw;
 }
 
-
 .transaction-button .category {
   margin: 1vw 1vw;
 }
@@ -54,4 +53,12 @@
 .delete {
   background-color: red;
   margin-right: 1vw;
+}
+
+.button-tag {
+  font-size: 0.8rem;
+}
+
+.category-header-button {
+  margin-left: 2vw;
 }
