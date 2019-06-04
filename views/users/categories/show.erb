@@ -1,19 +1,17 @@
-<header>
-  <h1><i class="fas fa-tag header-tag">&nbsp;</i><%= @category.name.capitalize %></h1>
-</header>
-<a href="./<%= @category.id %>/edit" class="small-button category-header-button"><i class="far fa-edit">&nbsp;</i>Edit</a>
-
-<div class="show-header">
-<div class="show-card shadow">
-
-
-  <div class="category-insight">
-    <h3>Insight</h3>
-    <br>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="show-container">
+  <header>
+    <h1><i class="fas fa-tag header-tag">&nbsp;</i><%= @category.name.capitalize %></h1>
+  </header>
+  <a href="./<%= @category.id %>/edit" class="small-button category-header-button"><i class="far fa-edit">&nbsp;</i>Edit</a>
+  <div class="insight-box shadow">
+    <ul>
+      <li>You've spent <span class="insight"><%= @user.pretty_print(@budget.sum_category(@category)) %></span> in total on <%= @category.name.downcase %>.</li>
+      <li>Your largest purchase was <span class="insight"><%= @user.pretty_print(@budget.category_largest(@category).value) %></span> on <span class="insight"><%= (@budget.category_largest(@category).transaction_date).strftime("%d/%m/%Y") %></span></li>
+      <li><span class="insight"><%= @budget.category_percent(@category) %>%</span> of your spending has been in this category</li>
+    </ul>
   </div>
 </div>
-  </div>
+</div>
 <div class="table-container flex">
   <table>
     <tr>
@@ -31,21 +29,20 @@
       <td><a href="../transactions/<%= transaction.id %>">
         <%= transaction.category.name.capitalize %>
         <i class="fas fa-tag index-tag">&nbsp;</i></a></td>
-      <td><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_description %></a></td>
-      <td class="amount"><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_value %></a></td>
-    </tr>
-    <% end %>
-    <% end %>
-    <tfoot>
-      <td colspan="4" class="empty"></td>
-      <td class="sum">
-        <% sum = 0 %>
-        <% for transaction in @transactions %>
-        <% sum += transaction.value if transaction.category_id == @category.id %>
-        <% end %>
-        <%= sum.to_s.insert(-3, ".").prepend("£") %>
-      </td>
-    </tfoot>
-  </table>
-</div>
-</div>
+        <td><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_description %></a></td>
+        <td class="amount"><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_value %></a></td>
+      </tr>
+      <% end %>
+      <% end %>
+      <tfoot>
+        <td colspan="4" class="empty"></td>
+        <td class="sum">
+          <% sum = 0 %>
+          <% for transaction in @transactions %>
+          <% sum += transaction.value if transaction.category_id == @category.id %>
+          <% end %>
+          <%= sum.to_s.insert(-3, ".").prepend("£") %>
+        </td>
+      </tfoot>
+    </table>
+  </div>

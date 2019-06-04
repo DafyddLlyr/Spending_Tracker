@@ -4,18 +4,54 @@ class Budget
     @user = user
   end
 
-  def sum_pounds(grouping)
-    grouping_id = grouping.class.to_s.downcase.concat("_id")
+  def total_spending()
+    return @user.transactions.sum { |transaction| transaction.value }
+  end
+
+  def sum_category(category)
     sql = "SELECT SUM(value) FROM transactions
-    WHERE" + grouping_id + " = $1 AND user_id = $2"
-    values = [grouping.id, @user.id]
+    WHERE category_id = $1 AND user_id = $2"
+    values = [category.id, @user.id]
     result = SqlRunner.run(sql, values)
     return result[0]["sum"].to_i
   end
 
-  def pretty_value(grouping)
-    value = sum_pounds(grouping)
-    @value.to_s.insert(-3, ".").prepend("£")
+  def category_largest(category)
+    sql = "SELECT * FROM transactions
+    WHERE category_id = $1 AND user_id = $2
+    ORDER BY transactions.value DESC"
+    values = [category.id, @user.id]
+    result = SqlRunner.run(sql, values)
+    return Transaction.new(result[0])
+  end
+
+  def category_percent(category)
+    total_category = sum_category(category)
+    total_spending = total_spending()
+    return ((total_category.to_f / total_spending.to_f) * 100).to_i
+  end
+
+  def sum_merchant(merchant)
+    sql = "SELECT SUM(value) FROM transactions
+    WHERE merchant_id = $1 AND user_id = $2"
+    values = [merchant.id, @user.id]
+    result = SqlRunner.run(sql, values)
+    return result[0]["sum"].to_i
+  end
+
+  def merchant_largest(merchant)
+    sql = "SELECT * FROM transactions
+    WHERE merchant_id = $1 AND user_id = $2
+    ORDER BY transactions.value DESC"
+    values = [merchant.id, @user.id]
+    result = SqlRunner.run(sql, values)
+    return Transaction.new(result[0])
+  end
+
+  def merchant_percent(merchant)
+    total_merchant = sum_merchant(merchant)
+    total_spending = total_spending()
+    return ((total_merchant.to_f / total_spending.to_f) * 100).to_i
   end
 
   def status
@@ -38,7 +74,7 @@ class Budget
     if status < 0
       result = "You are currently #{-status}% past your set budget"
     else
-      result = "You have #{status}% remaining."
+      result = "You have #{status}% remaining"
     end
     return result
   end

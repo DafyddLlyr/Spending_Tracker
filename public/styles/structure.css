@@ -133,9 +133,22 @@ header {
   grid-column-gap: 1vw;
 }
 
-.category-insight, .merchant-insight {
+.insight-box {
   margin: 1vw;
-  text-align: justify;
+  background-color: white;
+  text-align: center;
+}
+
+.insight-box>* {
+  padding: 1vw;
+}
+
+.insight-box ul {
+  list-style: none;
+}
+
+.insight-box li {
+  line-height: 2;
 }
 
 .show-header {
@@ -206,4 +219,13 @@ header {
 .header-tag {
   color: #036837;
   font-size: 2.5rem;
+}
+
+.insight {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.show-container {
+  justify-content: space-between;
 }

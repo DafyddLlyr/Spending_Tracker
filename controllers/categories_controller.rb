@@ -4,6 +4,7 @@ require_relative("../models/transaction")
 require_relative("../models/user")
 require_relative("../models/merchant")
 require_relative("../models/category")
+require_relative("../models/budget")
 also_reload('../models/*')
 
 get "/users/:user_id/categories" do
@@ -28,6 +29,7 @@ get "/users/:user_id/categories/:id" do
   @user = User.find(params["user_id"])
   @category = Category.find(params["id"])
   @transactions = Transaction.all()
+  @budget = Budget.new(@user)
   erb(:"users/categories/show")
 end
 
