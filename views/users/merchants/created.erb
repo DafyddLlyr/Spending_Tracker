@@ -2,7 +2,10 @@
   <h1>Success!</h1>
 </header>
 <div class="confirmation-card flex-center-center flex-column shadow">
-<p>New merchant <%= @merchant.name.capitalize %> has been created.</p>
-<br>
-<a href="/users/<%= @user.id %>">Back to profile</a>
+  <p>New merchant "<%= @merchant.name %>" has been created.</p>
+  <br>
+  <a href="/users/<%= @user.id %>">
+    <div class="confirmation-button">
+      <i class="fas fa-user-circle">&nbsp;</i>Back to profile
+  </a>
 </div>

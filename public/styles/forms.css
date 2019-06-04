@@ -63,8 +63,9 @@ option {
   padding: 2vw 5vw;
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .new-card {
@@ -104,9 +105,10 @@ option {
   padding: 2vw 5vw;
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
   width: 20vw;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .budget-form {

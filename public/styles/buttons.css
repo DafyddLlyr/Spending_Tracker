@@ -27,6 +27,7 @@
   padding: 0.3vw 0;
   border-radius: 5px;
   width: 7vw;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .transaction-header a {
@@ -44,6 +45,8 @@
   padding: 0.3vw 1vw;
   border-radius: 5px;
   margin: 0 1vw;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
 }
 
 .transaction-button .category {
@@ -53,6 +56,11 @@
 .delete {
   background-color: red;
   margin-right: 1vw;
+  font-size: 1rem;
+}
+
+.edit {
+  font-size: 1rem;
 }
 
 .button-tag {
@@ -61,4 +69,17 @@
 
 .category-header-button {
   margin-left: 2vw;
+}
+
+.confirmation-button {
+  background-color: #06BA63;
+  font-weight: bold;
+  margin: 2vw;
+  width: 20vw;
+  padding: 2vw;
+  font-size: 1.3rem;
+}
+
+.confirmation-button a {
+  color: white;
 }
