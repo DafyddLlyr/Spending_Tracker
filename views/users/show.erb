@@ -4,21 +4,25 @@
     <div id="profile-header">
       <h1><%= @greetings.sample %> <%= @user.first_name %>!</h1>
     </div>
-<div class="time-date"><%= Time.now.strftime("%H:%M %p - %A, %d %B %Y") %> </div>
-    <div id="budget-overview" class="flex-center-center flex-column shadow">
+    <div class="time-date"><%= Time.now.strftime("%H:%M %p - %A, %d %B %Y") %> </div>
+    <div class="budget-card shadow">
+    <div id="budget-overview shadow" class="flex-center-center flex-column">
+      <h2>Remaining Budget: <%= @user.pretty_remaining_budget %></h2>
       <div class="budget-bar shadow">
-        <div class="budget-indicator <%= @budget.status %>"></div>
+        <div class="budget-indicator <%= @budget.status %>">
+          <p class="budget-status-text flex-center-center"><%= @budget.status_text %>
+          </p>
+        </div>
       </div>
-        <p>Your remaining budget is <%= @user.pretty_remaining_budget %> </p>
-      <p><%= @budget.status_text %></p>
     </div>
 
     <a href="./<%=@user.id%>/transactions/new" id="profile-add-transaction" class="flex-center-center shadow">
       <i class="fas fa-plus-circle"></i>&nbsp;New transaction
     </a>
-<br>
-    <h2>Recent Transaction</h2>
-    <% for transaction in @user.transactions.first(5) %>
+    </div>
+    <br>
+    <h2>Recent Transactions</h2>
+    <% for transaction in @user.transactions.first(6) %>
     <a href="./<%= @user.id %>/transactions/<%= transaction.id %>">
       <div class="profile-transaction shadow">
         <div class="recent-transaction-date">
@@ -34,7 +38,7 @@
   <div class="right flex-column">
 
     <div class="flex-center-center goal">
-      <h2>You Goal</h2>
+      <h2>Your Goal</h2>
       <img src="/images/goal/<%= @advisor.img %>" alt="goal_image" class="goal-image shadow">
       <p class="user-goal">"<%= @user.goal %>"</p>
     </div>
@@ -43,12 +47,12 @@
       <h2>Advice</h2>
 
     </div>
-
-    <div class="shadow savings">
-        <div class="saving-amount flex-center-center shadow"><p><%= @budget.savings_amount %></p></div>
-        <h2 class="savings-header flex-center-center shadow">Savings</h2>
+    <div class="savings flex">
+      <h2>Savings: </h2>
+      <div class="savings-right shadow">
+        <div class="saving-amount flex-center-center"><p><%= @budget.savings_amount %></p></div>
       </div>
-
+    </div>
   </div>
 
 

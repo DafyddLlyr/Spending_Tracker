@@ -31,6 +31,11 @@
   transition: 0.3s;
 }
 
+.budget-card {
+  background-color: white;
+  padding-top: 1vw;
+}
+
 .profile-transaction:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   font-weight: bold;
@@ -51,16 +56,14 @@
 
 #budget-overview {
   background-color: white;
-  height: 20vh;
   width: 100%;
-  /* font-size: 1.5rem; */
   text-align: center;
   justify-content: space-around;
 }
 
 .budget-bar {
   width: 90%;
-  background-color: lightgrey;
+  background-color: white;
   border-radius: 30px;
   margin: 1vw;
   height: 7vh;
@@ -74,6 +77,13 @@
   /* align-self: flex-start; */
 }
 
+.budget-status-text {
+  height: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
 #profile-add-transaction {
   font-size: 1.7rem;
   background-color: white;
@@ -81,17 +91,19 @@
   background-color: #06BA63;
   color: white !important;
   font-weight: bold;
+  margin: 1vw;
 }
 
 #profile-add-transaction:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   transition: 0.3s;
 }
 
 #profile-add-transaction i {
   color: white;
+  font-size: 2rem;
 }
 
 .flex-center-center {
@@ -106,45 +118,34 @@
 }
 
 .savings {
+  width: 100%;
   margin-bottom: 1vw;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.savings h2 {
+  font-size: 3rem;
+  margin-right: 1vw;
+}
+
+.savings-right {
   display: flex;
-  flex-direction: column;
   text-align: center;
   align-items: center;
-  justify-content: center;
-  height: auto;
-  background-color: white;
+  background-color: #06BA63;
+  color: white;
+  width: auto;
 }
 
 .saving-amount {
-  margin-top: 2vh;
-  background-color: #06BA63;
   font-size: 4rem;
-  width: 15vw;
-  height: 15vw;
-  border-radius: 100%;
-  color: white;
   font-weight: bold;
-}
-
-.saving-amount p {
-  position: relative;
-  bottom: 1vw;
+  margin: 0 1vw;
 }
 
 .savings-header {
-  background-color: white;
-  border-radius: 50px  ;
-  border: solid #06BA63 3px;
-  width: 15vw;
-  height: 4vw;
-  position: relative;
-  bottom: 4vw;
-}
-
-.saving-combined {
-  margin: 0;
-  padding: 0;
+  margin: 0 1vw;
 }
 
 .goal {

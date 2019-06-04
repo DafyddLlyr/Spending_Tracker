@@ -75,12 +75,7 @@ class Budget
 
   def status_text
     status = 100 - @user.budget_percent
-    if status < 0
-      result = "You are currently #{-status}% past your set budget"
-    else
-      result = "You have #{status}% remaining"
-    end
-    return result
+    return "#{status}%"
   end
 
 end

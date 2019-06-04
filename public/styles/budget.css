@@ -1,54 +1,54 @@
 .budget-00 {
-  width: 0%;
+  width: 10%;
 }
 
 .budget-10 {
-  background-color: #BF0900;
+  background-color: #FF0000;
   width: 10%;
 }
 
 .budget-20 {
-  background-color: #BE4500;
+  background-color: #FF3000;
   width: 20%;
 }
 
 .budget-30 {
-  background-color: #BD7F01;
+  background-color: #FF6000;
   width: 30%;
 }
 
 .budget-40 {
-  background-color: #BDB802;
+  background-color: #FF9100;
   width: 40%;
 }
 
 .budget-50 {
-  background-color: #87BC03;
+  background-color: #FFC100;
   width: 50%;
 }
 
 .budget-60 {
-  background-color: #4EBB03;
+  background-color: #FFF100;
   width: 60%;
 }
 
 .budget-70 {
-  background-color: #4EBB03;
+  background-color: #9DED01;
   width: 70%;
 }
 
 .budget-80 {
-  background-color: #16BB04;
+  background-color: #3DDC03;
   width: 80%;
 }
 
 .budget-90 {
-  background-color: #05BA2B;
+  background-color: #04CB1D;
   width: 90%;
 }
 
 .budget-100 {
-  background-color: #06BA63;
+  background-color: #05BA62;
   width: 100%;
   border-radius: 20px 20px 20px 20px;
 }

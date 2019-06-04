@@ -4,7 +4,7 @@
 <div class="confirmation-card flex-center-center flex-column shadow">
   <p>New transaction of <%= @transaction.pretty_value %> to <%= @transaction.merchant.name %>, made on <%= @transaction.pretty_date %> has been added to your transaction history.</p>
   <br>
-  <% if params["save"] == "on" %>
+  <% if @saving_amount != 100 && params["save"] == "on" %>
   <div class="saving-success">
     <p>You also made a saving of <%= @user.pretty_print(@saving_amount) %>!</p>
     <br>
