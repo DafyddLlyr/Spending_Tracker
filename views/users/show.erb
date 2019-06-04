@@ -28,12 +28,11 @@
         <div class="recent-transaction-date">
           <%= transaction.pretty_date %>
         </div>
-        <%= transaction.pretty_value %> at <%= transaction.merchant.name %> on <%= transaction.category.name.capitalize %>
+        <%= @user.pretty_print(transaction.value) %> at <%= transaction.merchant.name %> on <%= transaction.category.name.capitalize %>
       </div>
     </a>
     <% end %>
   </div>
-
 
   <div class="right flex-column">
 
@@ -43,16 +42,22 @@
       <p class="user-goal">"<%= @user.goal %>"</p>
     </div>
 
-    <div class="card flex-center-center advice shadow">
+    <div class="card advice shadow">
       <h2>Advice</h2>
-
+      <p>You have <%= @user.pretty_remaining_budget %> of your budget remaining. <span class="insight">That's <%= @budget.budget_advice %></span></p>
+      <p><span class="insight"> <%= @budget.biggest_category.name.capitalize %></span>
+         is your biggest expence, a total of <span class="insight"><%= @budget.pretty_print(@budget.biggest_category_value) %>
+         </span></p>
+      <p>You've spent the most at <span class="insight"><%= @budget.biggest_merchant.name %></span>, a total of <span class="insight"><%= @budget.pretty_print(@budget.biggest_merchant_value) %></span></p>
     </div>
+
     <div class="savings flex">
       <h2>Savings: </h2>
       <div class="savings-right shadow">
         <div class="saving-amount flex-center-center"><p><%= @budget.savings_amount %></p></div>
       </div>
     </div>
+
   </div>
 
 

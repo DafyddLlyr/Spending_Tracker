@@ -30,7 +30,7 @@
           <%= transaction.category.name.capitalize %>
           <i class="fas fa-tag index-tag">&nbsp;</i></a></td>
           <td><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_description %></a></td>
-          <td class="amount"><a href="../transactions/<%= transaction.id %>"><%= transaction.pretty_value %></a></td>
+          <td class="amount"><a href="../transactions/<%= transaction.id %>"><%= @user.pretty_print(transaction.value) %></a></td>
         </tr>
         <% end %>
         <% end %>

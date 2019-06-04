@@ -69,10 +69,6 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
-  def pretty_value()
-    @value.to_s.insert(-3, ".").prepend("£")
-  end
-
   def pretty_description()
     @description.length > 30 ? @description[0..30].concat("...") : @description
   end

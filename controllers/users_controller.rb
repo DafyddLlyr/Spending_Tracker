@@ -11,6 +11,7 @@ get "/users/:id" do
   @user = User.find(params["id"])
   @budget = Budget.new(@user)
   @advisor = Advisor.new(@user)
+  # binding.pry
   erb(:"users/show")
 end
 

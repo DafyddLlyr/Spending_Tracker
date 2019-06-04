@@ -39,6 +39,7 @@ post "/users/:user_id/transactions" do
 end
 
 get "/users/:user_id/transactions/:id" do
+  @user = User.find(params["user_id"].to_i)
   @transaction = Transaction.find(params["id"])
   erb(:"users/transactions/show")
 end

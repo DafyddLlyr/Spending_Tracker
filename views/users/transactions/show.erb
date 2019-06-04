@@ -5,7 +5,7 @@
 <div class="transaction-card shadow">
   <div class="transaction-details">
     <h2>Amount: </h2>
-    <p><%= @transaction.pretty_value %></p>
+    <p><%= @user.pretty_print(@transaction.value) %></p>
 
     <h2>Date: </h2>
     <p><%= @transaction.pretty_date %></p>
