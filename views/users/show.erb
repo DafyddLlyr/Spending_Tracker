@@ -9,8 +9,8 @@
       <div class="budget-bar shadow">
         <div class="budget-indicator <%= @budget.status %>"></div>
       </div>
-      <p>Your remaining budget is <%= @user.pretty_print(@user.remaining_budget) %></p>
-      <p>You have <%= 100 - @user.budget_percent %>% remaining</p>
+        <p>Your remaining budget is <%= @user.pretty_remaining_budget %> </p>
+      <p><%= @budget.status_text %></p>
     </div>
 
     <a href="./<%=@user.id%>/transactions/new" id="profile-add-transaction" class="flex-center-center shadow">

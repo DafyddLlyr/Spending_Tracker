@@ -21,11 +21,10 @@ end
 
 post "/users/:user_id/transactions" do
   @transaction = Transaction.new(params)
+  @transaction.value = (params["pounds"].to_i * 100) + params["pence"].to_i
   @transaction.save()
   @user = User.find(params["user_id"].to_i)
-  @user.spent_pounds += @transaction.pounds
-  @user.spent_pence += @transaction.pence
-  @user.resolve_budget()
+  @user.spent += @transaction.value
   @user.update()
   erb(:"/users/transactions/created")
 end
@@ -37,12 +36,10 @@ end
 
 post "/users/:user_id/transactions/:id/delete" do
   @transaction = Transaction.find(params["id"])
-  @transaction.delete()
   @user = User.find(params["user_id"].to_i)
-  @user.spent_pounds -= @transaction.pounds
-  @user.spent_pence -= @transaction.pence
-  @user.resolve_budget()
+  @user.spent -= @transaction.value if @user.spent > 0
   @user.update()
+  @transaction.delete()
   erb(:"users/transactions/deleted")
 end
 
@@ -56,6 +53,12 @@ end
 
 post "/users/:user_id/transactions/:id" do
   @transaction = Transaction.new(params)
+  new_value = (params["pounds"].to_i * 100) + params["pence"].to_i
+  difference = new_value - @transaction.value
+  @transaction.value = new_value
   @transaction.update()
+  @user = User.find(params["user_id"].to_i)
+  @user.spent += difference
+  @user.update()
   erb(:"users/transactions/updated")
 end

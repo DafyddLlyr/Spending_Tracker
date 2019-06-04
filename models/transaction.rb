@@ -26,7 +26,15 @@ class Transaction
       description
     )
     VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
-    values = [@transaction_date, @value, @merchant_id, @user_id, @category_id, @description]
+    values =
+    [
+      @transaction_date,
+      @value,
+      @merchant_id,
+      @user_id,
+      @category_id,
+      @description
+    ]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
@@ -41,8 +49,17 @@ class Transaction
       category_id,
       description
     )
-    = ($1, $2, $3, $4, $5, $6) WHERE id = $8"
-    values = [@transaction_date, @value, @merchant_id, @user_id, @category_id, @description, @id]
+    = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
+    values =
+    [
+      @transaction_date,
+      @value,
+      @merchant_id,
+      @user_id,
+      @category_id,
+      @description,
+      @id
+    ]
     SqlRunner.run(sql, values)
   end
 

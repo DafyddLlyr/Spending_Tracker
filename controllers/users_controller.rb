@@ -21,13 +21,10 @@ end
 
 post "/users/:id" do
   @user = User.find(params["id"])
-  @user.budget_pounds = params["budget_pounds"].to_i
-  @user.budget_pence = params["budget_pence"].to_i
+  new_budget = (params["pounds"].to_i * 100) + params["pence"].to_i
+  @user.budget = new_budget
+  @user.spent = 0 if params["reset"] == "on"
   @user.goal = params["goal"]
-  if params["reset"] == "on"
-    @user.spent_pounds = 0
-    @user.spent_pence = 0
-  end
   @user.update
   erb(:"users/updated")
 end

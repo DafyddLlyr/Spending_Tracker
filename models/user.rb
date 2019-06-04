@@ -16,19 +16,33 @@ class User
   end
 
   def pretty_print(value)
-    value.to_s.insert(-3, ".").prepend("£")
+    if value <= 0
+      result = "0.00"
+    elsif value.digits.count == 1
+      result = "0.0#{value}"
+    elsif value.digits.count == 2
+      result = "0.#{value}"
+    else
+      result = value.to_s.insert(-3, ".")
+    end
+    return "£#{result}"
   end
 
   def remaining_budget()
     return @budget - @spent
   end
 
+  def pretty_remaining_budget()
+    remaining = @budget - @spent
+    return pretty_print(remaining)
+  end
+
   def budget_percent
-    return (@spent.to_f / @budget.to_f) * 100.to_i
+    return ((@spent.to_f / @budget.to_f) * 100).to_i
   end
 
   def pretty_budget_percent
-    return "#{budget_percent}%"
+    @spent == 0 ? 100 : "#{budget_percent}%"
   end
 
   def save()
@@ -62,7 +76,7 @@ class User
       spent,
       goal
     )
-    = ($1, $2, $3, $4, $5) WHERE id = $6"
+    = ($1, $2, $3) WHERE id = $4"
     values =
     [
       @budget,

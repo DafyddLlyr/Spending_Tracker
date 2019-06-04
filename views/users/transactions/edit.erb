@@ -10,8 +10,8 @@
 
   <label for="price">Amount: </label>
   <div class="price">
-  <input type="number" name="pounds" min="0" value="<%= @transaction.pounds %>" class="pounds" required>
-  <input type="number" name="pence" min="0" max= "99" value="<%= @transaction.pence %>" class="pence" required>
+  <input type="number" name="pounds" min="0" value="<%= @transaction.value / 100 %>" class="pounds" required>
+  <input type="number" name="pence" min="0" max= "99" value="<%= @transaction.value % 100 %>" class="pence" required>
 </div>
 
   <label for="merchant-select">Merchant: </label>
