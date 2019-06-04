@@ -57,10 +57,12 @@
   background-color: red;
   margin-right: 1vw;
   font-size: 1rem;
+  border: none;
 }
 
 .edit {
   font-size: 1rem;
+  border: none;
 }
 
 .button-tag {
@@ -75,6 +77,7 @@
   background-color: #06BA63;
   font-weight: bold;
   margin: 2vw;
+  margin-bottom: 0;
   width: 20vw;
   padding: 2vw;
   font-size: 1.3rem;

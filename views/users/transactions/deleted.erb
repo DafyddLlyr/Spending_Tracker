@@ -4,5 +4,7 @@
 <div class="confirmation-card flex-center-center flex-column shadow">
 <p>Transaction of <%= @transaction.pretty_value %> to <%= @transaction.merchant.name %>, on <%= @transaction.pretty_date %> had been deleted.</p>
 <br>
-<a href="/users/<%= @transaction.user_id %>">Return to profile</a>
+<a href="/users/<%= @transaction.user_id %>">
+  <div class="confirmation-button">
+    <i class="fas fa-user-circle">&nbsp;</i>Return to profile</a>
 </div>

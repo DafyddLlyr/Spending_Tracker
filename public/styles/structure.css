@@ -125,6 +125,10 @@ header {
   text-align: center;
 }
 
+.confirmation-card p {
+    font-size: 1.3rem;
+}
+
 .show-card {
   background-color: white;
   margin: 1vw;
