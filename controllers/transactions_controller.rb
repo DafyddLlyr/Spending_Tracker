@@ -52,11 +52,12 @@ get "/users/:user_id/transactions/:id/edit" do
 end
 
 post "/users/:user_id/transactions/:id" do
-  @transaction = Transaction.new(params)
+  @updated_transaction = Transaction.new(params)
   new_value = (params["pounds"].to_i * 100) + params["pence"].to_i
-  difference = new_value - @transaction.value
-  @transaction.value = new_value
-  @transaction.update()
+  old_value = Transaction.find(params["id"]).value
+  difference = new_value - old_value
+  @updated_transaction.value = new_value
+  @updated_transaction.update()
   @user = User.find(params["user_id"].to_i)
   @user.spent += difference
   @user.update()

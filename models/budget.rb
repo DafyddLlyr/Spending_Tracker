@@ -30,7 +30,7 @@ class Budget
     return "budget-70" if status <= 70
     return "budget-80" if status <= 80
     return "budget-90" if status <= 90
-    return "TEST"
+    return "budget-100"
   end
 
   def status_text
@@ -38,7 +38,7 @@ class Budget
     if status < 0
       result = "You are currently #{-status}% past your set budget"
     else
-      result = "You have #{status}% remining."
+      result = "You have #{status}% remaining."
     end
     return result
   end
