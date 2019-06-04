@@ -75,7 +75,7 @@
 }
 
 #profile-add-transaction {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   background-color: white;
   height: 10vh;
   background-color: #06BA63;
@@ -111,6 +111,9 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
+  justify-content: center;
+  height: auto;
+  background-color: white;
 }
 
 .saving-amount {
@@ -137,6 +140,11 @@
   height: 4vw;
   position: relative;
   bottom: 4vw;
+}
+
+.saving-combined {
+  margin: 0;
+  padding: 0;
 }
 
 .goal {
