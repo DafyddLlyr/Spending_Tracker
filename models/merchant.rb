@@ -4,29 +4,25 @@ require_relative("../db/sql_runner")
 class Merchant
 
   attr_reader :id
-  attr_accessor :name
+  attr_accessor :name, :logo
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @name = options["name"]
+    @logo = options["logo"]
   end
 
   def save()
-    sql = "INSERT INTO merchants(name) VALUES ($1) RETURNING id"
-    values = [@name]
+    sql = "INSERT INTO merchants(name, logo) VALUES ($1, $2) RETURNING id"
+    values = [@name, @logo]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
 
   def update()
-    # This needs () for multiple values
-    sql = "UPDATE merchants SET name = $1 WHERE id = $2"
-    values = [@name, @id]
+    sql = "UPDATE merchants SET (name, logo) = ($1, $2) WHERE id = $2"
+    values = [@name, @logo, @id]
     SqlRunner.run(sql, values)
-  end
-
-  def largest_transaction(user)
-    
   end
 
   def self.user_transactions(user)

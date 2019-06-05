@@ -27,13 +27,17 @@
 
   <div class="transaction-header">
 
-    <div class="logo-placeholder"></div>
+    <div class="logo-placeholder flex-center-center">
+    <a href="/users/<%= @transaction.user_id %>/merchants/<%= @transaction.merchant.id %>">
+      <img src="<%= @transaction.merchant.logo %>" alt="<%= @transaction.merchant.name %>-logo" class="logo-placeholder">
+    </a>
+</div>
 
     <a href="/users/<%= @transaction.user_id %>/categories/<%= @transaction.category.id %>">
       <div class="transaction-button category">
-        <%= @transaction.category.name.capitalize %>
+        <%= @transaction.category.name %>
         <i class="fas fa-tag button-tag"></i></div>
-    </a>
+      </a>
 
+    </div>
   </div>
-</div>

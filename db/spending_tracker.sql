@@ -16,6 +16,7 @@ CREATE TABLE users (
 
 CREATE TABLE merchants (
   id SERIAL8 PRIMARY KEY,
+  logo VARCHAR(255),
   name VARCHAR(255) UNIQUE
 );
 

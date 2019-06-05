@@ -31,7 +31,7 @@
         <div class="recent-transaction-date">
           <%= transaction.pretty_date %>
         </div>
-        <%= @user.pretty_print(transaction.value) %> at <%= transaction.merchant.name %> on <%= transaction.category.name.capitalize %>
+        <%= @user.pretty_print(transaction.value) %> at <%= transaction.merchant.name %> on <%= transaction.category.name %>
       </div>
     </a>
     <% end %>

@@ -17,14 +17,14 @@
   <label for="merchant-select">Merchant: </label>
   <select name="merchant_id" required>
     <% for merchant in @merchants %>
-    <option value="<%= merchant.id %>"><%= merchant.name %></option>
+    <option value="<%= merchant.id %>" <%="selected" if @transaction.merchant.id == merchant.id %>><%= merchant.name %></option>
     <% end %>
   </select>
 
   <label for="category-select">Category: </label>
   <select name="category_id" required>
     <% for category in @categories %>
-    <option value="<%= category.id %>"><%= category.name.capitalize %></option>
+    <option value="<%= category.id %>" <%="selected" if @transaction.category.id == category.id %>><%= category.name %></option>
     <% end %>
   </select>
 

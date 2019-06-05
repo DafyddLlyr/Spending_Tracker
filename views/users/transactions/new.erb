@@ -23,7 +23,7 @@
   <label for="category-select shadow">Category: </label>
   <select name="category_id" required>
     <% for category in @categories %>
-    <option value="<%= category.id %>"><%= category.name.capitalize %></option>
+    <option value="<%= category.id %>"><%= category.name %></option>
     <% end %>
   </select>
 

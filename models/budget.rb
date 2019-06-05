@@ -31,7 +31,7 @@ class Budget
     return ((total_category.to_f / total_spending.to_f) * 100).to_i
   end
 
-  def self.sum_merchant(merchant)
+  def sum_merchant(merchant)
     sql = "SELECT SUM(value) FROM transactions
     WHERE merchant_id = $1 AND user_id = $2"
     values = [merchant.id, @user.id]

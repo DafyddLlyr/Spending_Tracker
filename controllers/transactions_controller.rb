@@ -14,8 +14,8 @@ end
 
 get "/users/:user_id/transactions/new" do
   @user = User.find(params["user_id"].to_i)
-  @merchants = Merchant.all()
-  @categories = Category.all()
+  @merchants = Merchant.all().sort_by { |merchant| merchant.name }
+  @categories = Category.all().sort_by { |category| category.name }
   erb(:"users/transactions/new")
 end
 
@@ -55,8 +55,8 @@ end
 
 get "/users/:user_id/transactions/:id/edit" do
   @user = User.find(params["user_id"].to_i)
-  @merchants = Merchant.all()
-  @categories = Category.all()
+  @merchants = Merchant.all().sort_by { |merchant| merchant.name }
+  @categories = Category.all().sort_by { |category| category.name }
   @transaction = Transaction.find(params["id"])
   erb(:"users/transactions/edit")
 end

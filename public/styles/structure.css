@@ -141,6 +141,8 @@ header {
   margin: 1vw;
   background-color: white;
   text-align: center;
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .insight-box>* {
@@ -203,11 +205,10 @@ header {
 }
 
 .logo-placeholder {
-  width: 20vw;
-  height: 10vw;
-  background-color: darkgrey;
+  max-width: 20vw;
+  max-height: 15vw;
   align-self: center;
-  margin-bottom: 1vw;
+  margin: 1vw 0;
 }
 
 .transaction-show-buttons {
