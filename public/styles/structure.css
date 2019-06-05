@@ -229,7 +229,8 @@ header {
   font-weight: bold;
   font-size: 1.3rem;
   color: white;
-  background-color: #06BA63
+  background-color: #06BA63;
+  padding: 0 0.7vw;
 }
 
 .show-container {

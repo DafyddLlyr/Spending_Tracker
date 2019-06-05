@@ -31,7 +31,7 @@ class Budget
     return ((total_category.to_f / total_spending.to_f) * 100).to_i
   end
 
-  def sum_merchant(merchant)
+  def self.sum_merchant(merchant)
     sql = "SELECT SUM(value) FROM transactions
     WHERE merchant_id = $1 AND user_id = $2"
     values = [merchant.id, @user.id]
@@ -82,32 +82,46 @@ class Budget
     return "perfect!" if @user.budget_percent >= 10
   end
 
-  def biggest_category_array
-    category_hash = @user.categories.map { |category| { category => self.sum_category(category) } }
-    category_hashes = category_hash.reduce({}, :merge )
-    return category_hashes.sort_by { |key, value| value }.last
+  def biggest_category_hash
+    sql = "SELECT SUM(value), category_id FROM transactions
+    WHERE user_id = $1
+    GROUP BY category_id
+    ORDER BY sum DESC"
+    values = [@user.id]
+    result = SqlRunner.run(sql, values)
+    return result
   end
 
-  def biggest_category
-    self.biggest_category_array[0]
+  def biggest_category_sum
+    value = biggest_category_hash[0]["sum"].to_i
+    return pretty_print(value)
   end
 
-  def biggest_category_value
-    self.biggest_category_array[1]
+  def biggest_category_name
+    id = biggest_category_hash[0]["category_id"].to_i
+    category = Category.find(id)
+    return category.name.capitalize
   end
 
-  def biggest_merchant_array
-    merchant_hash = @user.merchants.map { |merchant| { merchant => self.sum_merchant(merchant) } }
-    merchant_hashes = merchant_hash.reduce({}, :merge )
-    return merchant_hashes.sort_by { |key, value| value }.last
+  def biggest_merchant_hash
+    sql = "SELECT SUM(value), merchant_id FROM transactions
+    WHERE user_id = $1
+    GROUP BY merchant_id
+    ORDER BY sum DESC"
+    values = [@user.id]
+    result = SqlRunner.run(sql, values)
+    return result
   end
 
-  def biggest_merchant
-    self.biggest_merchant_array[0]
+  def biggest_merchant_sum
+    value = biggest_merchant_hash[0]["sum"].to_i
+    return pretty_print(value)
   end
 
-  def biggest_merchant_value
-    self.biggest_merchant_array[1]
+  def biggest_merchant_name
+    id = biggest_merchant_hash[0]["merchant_id"].to_i
+    merchant = Merchant.find(id)
+    return merchant.name
   end
 
   def pretty_print(value)

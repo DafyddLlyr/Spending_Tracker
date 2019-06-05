@@ -12,7 +12,7 @@ class User
     @birth_date = Date.parse(options["birth_date"])
     @budget = options["budget"].to_i
     @spent = options["spent"].to_i
-    @goal = options["goal"].chomp
+    @goal = options["goal"]
     @savings = options["savings"].to_i
   end
 
@@ -125,6 +125,14 @@ class User
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |category| Category.new(category) }
+  end
+
+  def sum_category(category)
+    sql = "SELECT SUM(value) FROM transactions
+    WHERE category_id = $1 AND user_id = $2"
+    values = [category.id, @id]
+    result = SqlRunner.run(sql, values)
+    return result[0]
   end
 
   def self.all()

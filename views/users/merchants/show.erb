@@ -8,7 +8,7 @@
     <ul>
       <li>You've spent <span class="insight"><%= @user.pretty_print(@budget.sum_merchant(@merchant)) %></span> in total at <%= @merchant.name %>.</li>
       <li>Your largest purchase was <span class="insight"><%= @user.pretty_print(@budget.merchant_largest(@merchant).value) %></span> on <span class="insight"><%= (@budget.merchant_largest(@merchant).transaction_date).strftime("%d/%m/%Y") %></span></li>
-      <li><span class="insight"><%= @budget.merchant_percent(@merchant) %>%</span> of your spending has been in this category</li>
+      <li><span class="insight"><%= @budget.merchant_percent(@merchant) %>%</span> of your spending has been with this merchant.</li>
     </ul>
   </div>
 
