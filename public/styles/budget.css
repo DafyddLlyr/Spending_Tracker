@@ -1,54 +1,63 @@
 .budget-00 {
-  width: 10%;
+  background-color: white;
 }
 
 .budget-10 {
   /* background-color: #FF0000; */
-  width: 10%;
+  /* width: 10%; */
+  background: linear-gradient(to right, #05ba62 10%, #ffffff 90%);
 }
 
 .budget-20 {
   /* background-color: #FF3000; */
-  width: 20%;
+  /* width: 20%; */
+  background: linear-gradient(to right, #05ba62 20%, #ffffff 80%);
 }
 
 .budget-30 {
   /* background-color: #FF6000; */
-  width: 30%;
+  /* width: 30%; */
+  background: linear-gradient(to right, #05ba62 30%, #ffffff 70%);
 }
 
 .budget-40 {
   /* background-color: #FF9100; */
-  width: 40%;
+  /* width: 40%; */
+  background: linear-gradient(to right, #05ba62 40%, #ffffff 60%);
 }
 
 .budget-50 {
   /* background-color: #FFC100; */
-  width: 50%;
+  /* width: 50%; */
+  background: linear-gradient(to right, #05ba62 50%, #ffffff 50%);
 }
 
 .budget-60 {
   /* background-color: #FFF100; */
-  width: 60%;
+  /* width: 60%; */
+  background: linear-gradient(to right, #05ba62 60%, #ffffff 40%);
 }
 
 .budget-70 {
   /* background-color: #9DED01; */
-  width: 70%;
+  /* width: 70%; */
+  background: linear-gradient(to right, #05ba62 70%, #ffffff 30%);
 }
 
 .budget-80 {
   /* background-color: #3DDC03; */
-  width: 80%;
+  /* width: 80%; */
+  background: linear-gradient(to right, #05ba62 80%, #ffffff 20%);
 }
 
 .budget-90 {
   /* background-color: #04CB1D; */
-  width: 90%;
+  /* width: 90%; */
+  background: linear-gradient(to right, #05ba62 90%, #ffffff 10%);
 }
 
 .budget-100 {
   /* background-color: #05BA62; */
-  width: 100%;
-  border-radius: 20px 20px 20px 20px;
+  /* width: 100%; */
+  background: linear-gradient(to right, #05ba62 100%, #ffffff 00%);
 }

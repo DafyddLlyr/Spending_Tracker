@@ -78,7 +78,7 @@ class Budget
     return "cutting things a bit fine." if @user.budget_percent >= 90
     return "alright." if @user.budget_percent >= 75
     return "good." if @user.budget_percent >= 60
-    return "great." if @user.budget_percent >= 50
+    return "great." if @user.budget_percent >= 35
     return "perfect!" if @user.budget_percent >= 10
   end
 
