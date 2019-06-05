@@ -2,6 +2,11 @@
   <h1><i class="fas fa-list-alt header-tag">&nbsp;</i>All Transactions</h1>
 </header>
 
+<% if @transactions.length == 0 %>
+<div class="flex-center-center">
+<%= "No transactional data to display" %>
+<% else %>
+</div>
 <div class="table-container flex">
 <table>
   <tr>
@@ -26,8 +31,11 @@
     <td colspan="4" class="empty"></td>
     <td class="sum">
       <% sum = @transactions.sum { |transaction| transaction.value } %>
-      <%= sum.to_s.insert(-3, ".").prepend("£") %>
+      <%= @user.pretty_print(sum) %>
     </td>
   </tfoot>
 </table>
+
+<% end %>
+
 </div>

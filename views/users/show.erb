@@ -11,9 +11,10 @@
     <div class="budget-card shadow">
       <div id="budget-overview shadow" class="flex-center-center flex-column">
         <h2>Remaining Budget: <%= @user.pretty_remaining_budget %></h2>
-        <div class="budget-bar shadow">
-          <div class="budget-indicator <%= @budget.status %>">
-            <p class="budget-status-text flex-center-center"><%= @budget.status_text %>
+        <div class="budget-bar shadow <%= @budget.status %>">
+          <div class="budget-indicator">
+            <p class="budget-status-text flex-center-center">
+            <%= @budget.status_text %>
             </p>
           </div>
         </div>
@@ -46,16 +47,21 @@
     </div>
 
     <div class="card advice shadow">
+
       <h2>Analytics</h2>
+
       <% if @user.transactions.count == 0 %>
       <p>We don't have enough data for this feature just yet </p>
       <% else %>
+
       <p>You have <%= @user.pretty_remaining_budget %> of your budget remaining. <span class="insight">That's <%= @budget.budget_advice %></span></p>
+
       <p><span class="insight"><%= @budget.biggest_category_name %></span> is your biggest expense - a total of <span class="insight"><%= @budget.biggest_category_sum %></span></p>
 
       <p>You've spent the most at <span class="insight"><%= @budget.biggest_merchant_name %></span>, a total of <span class="insight"><%= @budget.biggest_merchant_sum %></span></p>
 
       <% end %>
+
     </div>
 
     <div class="savings flex">

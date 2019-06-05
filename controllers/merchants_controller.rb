@@ -10,7 +10,6 @@ get "/users/:user_id/merchants" do
   @user = User.find(params["user_id"])
   @budget = Budget.new(@user)
   @merchants = @user.merchants()
-  # binding.pry
   erb(:"/users/merchants/index")
 end
 
@@ -42,7 +41,8 @@ end
 
 post "/users/:user_id/merchants/:id" do
   @user = User.find(params["user_id"].to_i)
-  @merchant = Merchant.new(params)
+  @merchant = Merchant.find(params["id"])
+  @merchant.name = params["name"]
   @merchant.update()
   erb(:"users/merchants/updated")
 end

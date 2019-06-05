@@ -3,7 +3,7 @@
     <h1><i class="fas fa-tag header-tag">&nbsp;</i><%= @category.name %></h1>
   </header>
   <a href="./<%= @category.id %>/edit" class="small-button category-header-button"><i class="far fa-edit">&nbsp;</i>Edit</a>
-  <div class="insight-box shadow">
+  <div class="insight-box-category shadow">
     <ul>
       <li>You've spent <span class="insight"><%= @user.pretty_print(@budget.sum_category(@category)) %></span> in total on <%= @category.name.downcase %>.</li>
       <li>Your largest purchase was <span class="insight"><%= @user.pretty_print(@budget.category_largest(@category).value) %></span> on <span class="insight"><%= (@budget.category_largest(@category).transaction_date).strftime("%d/%m/%Y") %></span></li>

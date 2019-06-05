@@ -8,7 +8,7 @@ body {
   display: grid;
   grid-template-columns: 20vw auto;
   font-family: 'Montserrat', sans-serif;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 nav {
@@ -138,6 +138,14 @@ header {
   grid-column-gap: 1vw;
 }
 
+.insight-box-category {
+  margin: 1vw;
+  background-color: white;
+  text-align: center;
+  /* display: grid;
+  grid-template-columns: auto auto; */
+}
+
 .insight-box {
   margin: 1vw;
   background-color: white;
@@ -146,14 +154,17 @@ header {
   grid-template-columns: auto auto;
 }
 
+.insight-box-category>*,
 .insight-box>* {
   padding: 1vw;
 }
 
+.insight-box-category ul,
 .insight-box ul {
   list-style: none;
 }
 
+.insight-box-category li,
 .insight-box li {
   line-height: 2;
 }
