@@ -1,7 +1,7 @@
 #profile {
   display: grid;
   grid-template-columns: 60% auto;
-  margin: 0vw 2vw 0vw 1vw;
+  margin: 0vw 1vw 0vw 1vw;
   grid-column-gap: 1vw;
 }
 
