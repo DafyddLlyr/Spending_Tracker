@@ -6,7 +6,7 @@
 
 ## Features
 
-* Dynamic insights into the users’ spending patterns to allow better money management
+* Dynamic insights into the users’ spending  patterns to allow better money management
 
 * Add and manage transactions, merchants and categories
 
