@@ -78,4 +78,4 @@ Launch app
 ruby app.rb
 ```
 
-Finally, visit http://localhost:4567/ in your browser.
+Finally, visit http://localhost:4567 in your browser.
