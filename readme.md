@@ -6,7 +6,7 @@
 
 ## Features
 
-* Dynamic insights into the users’ spending  patterns to allow better money management
+* Dynamic insights into the users’ spending patterns to allow better money management
 
 * Add and manage transactions, merchants and categories
 
@@ -37,3 +37,45 @@
 
 #### Merchant overview
 ![Merchant Overview](/screenshots/merchant_view.png)
+
+
+### Prerequisites
+
+Prior to installation you will need the following installed on your machine -
+
+* [Sinatra](http://sinatrarb.com/)
+* [Sinatra::Contrib](http://sinatrarb.com/contrib/)
+* [Ruby](https://www.ruby-lang.org/en/)
+* [PostreSQL](https://www.postgresql.org/)
+* [Pry](https://rubygems.org/gems/pry/versions/0.10.3)
+
+
+### Installation
+
+Here's how you can get the Spending Tracker running locally once you download the repository. This will need to be done from the local folder.
+
+Create the database
+
+```
+createdb spending_tracker
+```
+
+Run database schema
+
+```
+psql -d spending_tracker -f db/spending_tracker.sql
+```
+
+Run seed file for creation of initial transactions, merchants and categories
+
+```
+ruby db/seeds.rb
+```
+
+Launch app
+
+```
+ruby app.rb
+```
+
+Finally, visit http://localhost:4567/ in your browser.
