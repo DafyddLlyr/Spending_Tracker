@@ -6,7 +6,7 @@
 
 ## Features
 
-* Dynamic insights into the users’ spending patterns to allow better money management
+* Dynamic insights into the users’ spending  patterns to allow better money management
 
 * Add and manage transactions, merchants and categories
 
@@ -14,14 +14,13 @@
 
 * Goal image updates based on user input
 
-* Profile or dashboard view allowing users an overview of their spending on one page
+* Dashboard view allowing users an overview of their spending on one page
 
 
 ## Screenshots
 
 #### View all transactions
 ![All transactions](/screenshots/all_transactions.png)
-
 
 #### View single transactions
 ![Transaction page](/screenshots/transaction_page.png)
@@ -46,6 +45,7 @@ Prior to installation you will need the following installed on your machine -
 * [Sinatra](http://sinatrarb.com/)
 * [Sinatra::Contrib](http://sinatrarb.com/contrib/)
 * [Ruby](https://www.ruby-lang.org/en/)
+* [PG Gem](https://rubygems.org/gems/pg/versions/0.18.4)
 * [PostreSQL](https://www.postgresql.org/)
 * [Pry](https://rubygems.org/gems/pry/versions/0.10.3)
 
